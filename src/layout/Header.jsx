@@ -13,7 +13,7 @@ export default function NavScroll() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <FaDev style={{ fontSize: '1.5rem', marginRight: '0.5rem' }} />
-        <Navbar.Brand href="#">JADTS</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">JADTS</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
