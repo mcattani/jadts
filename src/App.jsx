@@ -7,6 +7,7 @@ import Footer from './layout/Footer';
 import Header from './layout/Header'
 
 // Pages
+import Home from './pages/Home';
 import LoremIpsum from './pages/generadores/LoremIpsum';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          {/*<Route path='/' element={<Home/>}/>}*/}
+          <Route path='/' element={<Home/>}/>
           <Route path='/loremipsum' element={<LoremIpsum/>}/>
           {/*Ruta no existente*/}
           {/*<Route path='*' element={<NotFound />} />*/}
