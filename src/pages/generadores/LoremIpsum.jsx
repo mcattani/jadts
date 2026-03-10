@@ -5,6 +5,7 @@ export default function Lorem_Ipsum() {
 
   const [sentences, setSentences] = useState(5);
   const [paragraphs, setParagraphs] = useState(2);
+  const [htmlParagraphs, setHtmlParagraphs] = useState(false);
   const [result, setResult] = useState("");
 
   const handleSubmit = (e) => {
@@ -21,9 +22,15 @@ export default function Lorem_Ipsum() {
       }
     });
 
-    const text = lorem.generateParagraphs(paragraphs)
-    .split("\n")
-    .join("\n\n");
+    const rawText = lorem.generateParagraphs(paragraphs).split("\n");
+
+    let text;
+
+    if (htmlParagraphs) {
+      text = rawText.map(p => `<p>${p}</p>`).join("\n");
+    } else {
+      text = rawText.join("\n\n");
+    }
 
     setResult(text);
   };
@@ -36,6 +43,7 @@ export default function Lorem_Ipsum() {
     <div className="container py-4">
       <div className="row justify-content-center">
         <div className="col-lg-8">
+
           {/* Formulario */}
           <div className="card shadow-sm">
             <div className="card-header">
@@ -71,6 +79,20 @@ export default function Lorem_Ipsum() {
                     />
                   </div>
                 </div>
+
+                {/* Checkbox */}
+                <div className="form-check mt-3">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="htmlParagraphs"
+                    checked={htmlParagraphs}
+                    onChange={(e) => setHtmlParagraphs(e.target.checked)}
+                  />
+                  <label className="form-check-label" htmlFor="htmlParagraphs">
+                    HTML paragraphs
+                  </label>
+                </div>
                 <div className="mt-4">
                   <button
                     type="submit"
@@ -98,7 +120,7 @@ export default function Lorem_Ipsum() {
             </div>
             <div className="card-body">
               <div
-                className="border rounded p-3 bg-body-tertiary text-body"
+                className="border rounded p-3 bg-body-tertiary text-body font-monospace"
                 style={{
                   minHeight: "150px",
                   maxHeight: "300px",
