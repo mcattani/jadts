@@ -90,7 +90,7 @@ export default function Lorem_Ipsum() {
                     onChange={(e) => setHtmlParagraphs(e.target.checked)}
                   />
                   <label className="form-check-label" htmlFor="htmlParagraphs">
-                    HTML paragraphs
+                    Párrafos HTML
                   </label>
                 </div>
                 <div className="mt-4">

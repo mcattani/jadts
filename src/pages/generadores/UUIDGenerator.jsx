@@ -86,7 +86,7 @@ export default function UUID_Generator() {
 
                 {/* Version */}
                 <div className="col-md-3">
-                    <label className="form-label">Version</label>
+                    <label className="form-label">Versión</label>
                     <select className="form-select"
                         value={version}
                         onChange={(e) => setVersion(e.target.value)}>
@@ -97,7 +97,7 @@ export default function UUID_Generator() {
 
                 {/* Amount */}
                 <div className="col-md-3">
-                    <label className="form-label">Amount</label>
+                    <label className="form-label">Cantidad</label>
                     <input
                         type="number"
                         className="form-control"
@@ -141,7 +141,7 @@ export default function UUID_Generator() {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter namespace UUID"
+                        placeholder="namespace UUID"
                         value={customName}
                         onChange={(e) => setCustomName(e.target.value)}
                         disabled={version === "v4" || namespace !== "CUSTOM"}
@@ -182,7 +182,7 @@ export default function UUID_Generator() {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter UUID to validate"
+                        placeholder="UUID a validar"
                         value={UUIDtoValidate}
                         onChange={(e) => setUUIDtoValidate(e.target.value)}
                     />
