@@ -23,7 +23,7 @@ export default function NavScroll() {
           >
             <NavDropdown title="Generadores" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/loremipsum">Lorem Ipsum</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+              <NavDropdown.Item as={Link} href="/uuidgenerator">UUID Generador</NavDropdown.Item>
               <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
             </NavDropdown>
           </Nav>

@@ -9,6 +9,7 @@ import Header from './layout/Header'
 // Pages
 import Home from './pages/Home';
 import LoremIpsum from './pages/generadores/LoremIpsum';
+import UUID_Generator from './pages/generadores/UUIDGenerator';
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/loremipsum' element={<LoremIpsum/>}/>
+          <Route path='/uuidgenerator' element={<UUID_Generator/>}/>
           {/*Ruta no existente*/}
           {/*<Route path='*' element={<NotFound />} />*/}
         </Routes>
