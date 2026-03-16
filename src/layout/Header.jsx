@@ -5,7 +5,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaDev } from "react-icons/fa";
-
 import { Link } from 'react-router-dom';
 
 export default function NavScroll() {
@@ -23,8 +22,8 @@ export default function NavScroll() {
           >
             <NavDropdown title="Generadores" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/loremipsum">Lorem Ipsum</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/uuidgenerator">UUID Generador</NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/uuidgenerator">UUID</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/passgenerator">Password </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">

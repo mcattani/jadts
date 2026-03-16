@@ -10,6 +10,7 @@ import Header from './layout/Header'
 import Home from './pages/Home';
 import LoremIpsum from './pages/generadores/LoremIpsum';
 import UUID_Generator from './pages/generadores/UUIDGenerator';
+import PassGenerator from './pages/generadores/PassGenerator'
 
 function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/loremipsum' element={<LoremIpsum/>}/>
           <Route path='/uuidgenerator' element={<UUID_Generator/>}/>
+          <Route path='/passgenerator' element={<PassGenerator/>}/>
           {/*Ruta no existente*/}
           {/*<Route path='*' element={<NotFound />} />*/}
         </Routes>
