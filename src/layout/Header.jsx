@@ -29,11 +29,12 @@ export default function NavScroll() {
           <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder="Buscar"
               className="me-2"
-              aria-label="Search"
+              aria-label="Buscar"
+              disabled = "true"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" disabled="true">Buscar</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
