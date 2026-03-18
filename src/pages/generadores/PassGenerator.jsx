@@ -9,15 +9,20 @@ export default function PassGenerator() {
     const [numbers, setNumbers] = useState(false);
     const [symbols, setSymbols] = useState(false);
 
-    function generatePassword(){
+    const [strengthLabel, setStrengthLabel] = useState("");
+    const [strengthPercent, setStrengthPercent] = useState("");
+    const [strengthColor, setStrengthColor] = useState("");
+    const [strengthMessage, setStrengthMessage] = useState("");
+
+    function generatePassword() {
         let chars = "";
 
-        if(uppercase) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        if(lowercase) chars += "abcdefghijklmnopqrstuvwxyz";
-        if(numbers) chars += "0123456789";
-        if(symbols) chars += "!@#$%^&*()_+";
+        if (uppercase) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        if (lowercase) chars += "abcdefghijklmnopqrstuvwxyz";
+        if (numbers) chars += "0123456789";
+        if (symbols) chars += "!@#$%^&*()_+";
 
-        if (!uppercase && !lowercase && !numbers && !symbols){
+        if (!uppercase && !lowercase && !numbers && !symbols) {
             return "Debe seleccionar al menos un tipo de caracter."
         }
 
@@ -25,23 +30,72 @@ export default function PassGenerator() {
         // Crea un array de (length) tamaño con números aleatorios
         const randomValues = new Uint32Array(length);
         crypto.getRandomValues(randomValues);
-        
+
         // Tomamos un elemento de casa array para construir el result
-        for (let i = 0; i < length; i++){
+        for (let i = 0; i < length; i++) {
             result += chars[randomValues[i] % chars.length];
         }
         return result;
     }
-    
+
+    function calculateStrength(password) {
+        // Algoritmo simple de fuerza: longitud + tipo de caracteres
+        // Máximo 7 puntos
+        let score = 0;
+
+        if (password.length >= 8) { score++ };
+        if (password.length >= 12) { score++ };
+        if (password.length >= 16) { score++ };
+
+        if (uppercase) { score++ };
+        if (lowercase) { score++ };
+        if (numbers) { score++ };
+        if (symbols) { score++ };
+
+        // Calculamos porcentaje a partir del score
+        const porcentaje = (score / 7) * 100;
+
+        let label;
+        let color;
+        let mensaje;
+        // Calculamos el Label, Color de la etiqueta y mensaje
+        if (score <= 2) {
+            label = "Débil";
+            color = "bg-danger";
+            mensaje = "El password es muy débil, fácil de adivinar."
+        } else if (score <= 4) {
+            label = "Medio";
+            color = "bg-warning";
+            mensaje = "Podría ser más complejo... (no muy fuerte)";
+        } else if (score <= 6) {
+            label = "Fuerte";
+            color = "bg-info";
+            mensaje = "Buen password!";
+        } else {
+            label = "Muy fuerte!";
+            color = "bg-success";
+            mensaje = "Excelente!"
+        }
+
+        // Actualizamos los state
+        setStrengthLabel(label);
+        setStrengthColor(color);
+        setStrengthPercent(porcentaje);
+        setStrengthMessage(mensaje);
+
+    }
+
     function handleGenerate() {
-        setPassword(generatePassword());
+        const newPassword = generatePassword();
+        setPassword(newPassword);
+        calculateStrength(newPassword);
     }
 
     function handleSymbols() { setSymbols(!symbols); }
     function handleNumbers() { setNumbers(!numbers); }
     function handleLowercase() { setLowercase(!lowercase); }
     function handleUppercase() { setUppercase(!uppercase); }
-   
+
     function handleCopy() {
         if (!password) return;
         navigator.clipboard.writeText(password);
@@ -88,7 +142,7 @@ export default function PassGenerator() {
                             min="6"
                             max="64"
                             value={Number(length)}
-                            onChange={(e)=>setLength(Number(e.target.value))}
+                            onChange={(e) => setLength(Number(e.target.value))}
                         />
                     </div>
 
@@ -159,6 +213,31 @@ export default function PassGenerator() {
             </div>
 
             {/* PASSWORD STRENGTH (SEPARADO DEL GENERADOR) */}
+            <div className="card">
+                <div className="card-body">
+                    <h5 className="card-title mb-3">Seguridad de Contraseña</h5>
+
+                    {/* Texto del nivel */}
+                    <p className="mb-2">
+                        Seguridad: <strong>{strengthLabel}</strong>
+                    </p>
+
+                    {/* Barra visual */}
+                    <div className="progress mb-3">
+                        <div
+                            className={`progress-bar ${strengthColor}`}
+                            role="progressbar"
+                            style={{ width: `${strengthPercent}%` }}
+                        >
+                        </div>
+                    </div>
+
+                    {/* Mensaje opcional */}
+                    <small className="text-muted">
+                        {strengthMessage}
+                    </small>
+                </div>
+            </div>
 
         </div>
     );
