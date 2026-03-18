@@ -13,6 +13,7 @@ export default function PassGenerator() {
     const [strengthPercent, setStrengthPercent] = useState("");
     const [strengthColor, setStrengthColor] = useState("");
     const [strengthMessage, setStrengthMessage] = useState("");
+    const [combinations, setCombinations] = useState("");
 
     function generatePassword() {
         let chars = "";
@@ -35,10 +36,13 @@ export default function PassGenerator() {
         for (let i = 0; i < length; i++) {
             result += chars[randomValues[i] % chars.length];
         }
-        return result;
+        return {
+            password: result,
+            charsetSize: chars.length
+        };
     }
 
-    function calculateStrength(password) {
+    function calculateStrength(password, charsetSize) {
         // Algoritmo simple de fuerza: longitud + tipo de caracteres
         // Máximo 7 puntos
         let score = 0;
@@ -77,18 +81,28 @@ export default function PassGenerator() {
             mensaje = "Excelente!"
         }
 
-        // Actualizamos los state
+        // Actualizamos los estados
         setStrengthLabel(label);
         setStrengthColor(color);
         setStrengthPercent(porcentaje);
         setStrengthMessage(mensaje);
+    }
 
+    function calculateCombinations(length, charsetSize) {
+        // Función para calcular la cantidad de combinaciones
+        // posibles con el len del password y el charset
+        const log10Comb = length * Math.log10(charsetSize);
+        const exponent = Math.floor(log10Comb);
+        const mantissa = Math.pow(10, log10Comb - exponent);
+
+        return `${mantissa.toFixed(1)} × 10<sup>${exponent}</sup>`;
     }
 
     function handleGenerate() {
         const newPassword = generatePassword();
-        setPassword(newPassword);
-        calculateStrength(newPassword);
+        setPassword(newPassword.password);
+        calculateStrength(newPassword.password);
+        setCombinations(calculateCombinations(newPassword.password.length, newPassword.charsetSize));
     }
 
     function handleSymbols() { setSymbols(!symbols); }
@@ -236,6 +250,14 @@ export default function PassGenerator() {
                     <small className="text-muted">
                         {strengthMessage}
                     </small>
+
+                    {/* COMBINACIONES */}
+                    <small
+                        className="text-muted mt-2 d-block"
+                        dangerouslySetInnerHTML={{
+                            __html: `Combinaciones posibles: ${combinations}`
+                        }}
+                    />    
                 </div>
             </div>
 
