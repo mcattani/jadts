@@ -24,6 +24,7 @@ export default function NavScroll() {
               <NavDropdown.Item as={Link} to="/loremipsum">Lorem Ipsum</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/uuidgenerator">UUID</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/passgenerator">Password </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/qrcodegenerator">QR Code</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">
