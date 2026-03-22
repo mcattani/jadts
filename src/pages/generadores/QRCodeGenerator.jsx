@@ -6,8 +6,8 @@ export default function QRCodeGenerator() {
     const [type, setType] = useState("url");
     const [text, setText] = useState("Texto aquí");
     const [url, setUrl] = useState("http://www.google.com");
-    const [ssid, setSsid] = useState("");
-    const [password, setPassword] = useState("");
+    const [ssid, setSsid] = useState("Nombre de la red");
+    const [password, setPassword] = useState("Password aquí");
     const [security, setSecurity] = useState("WPA");
     const [size, setSize] = useState(256);
     const [fgColor, setFgColor] = useState("#000000");
