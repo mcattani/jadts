@@ -27,7 +27,37 @@ export default function QRCodeGenerator() {
         }
     }
 
-    const qrValue = buildQR();
+    function validateQR() {
+        switch (type) {
+            case "text":
+                if (text.trim() === "") {
+                    return "El texto no puede estar vacío";
+                }
+                break;
+
+            case "url":
+                if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                    return "La URL debe comenzar con 'http://' o 'https://'";
+                }
+                break;
+
+            case "wifi":
+                if (ssid.trim() === "") {
+                    return "El nombre de la red no puede estar vacío";
+                }
+                break;
+
+            default:
+                return "Tipo inválido";
+        }
+        return ""; // sin error
+    };
+
+    let qrValue = "";
+    const errorMsg = validateQR();
+    if (!errorMsg) {
+        qrValue = buildQR();
+    };
 
     function downloadQR() {
         // Fuente Google... estuve luchando con este download por largo rato
@@ -186,6 +216,12 @@ export default function QRCodeGenerator() {
 
                 {/* QR */}
                 <div className="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                    {/*ERROR*/}
+                    {errorMsg && (
+                        <div className="alert alert-danger w-100 text-center">
+                            {errorMsg}
+                        </div>
+                    )}
                     <div className="p-3 border mb-3">
                         <QRCode
                             id="qrCodeD"
