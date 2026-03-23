@@ -21,6 +21,9 @@ export default function QRCodeGenerator() {
             case "url":
                 return url || "http://www.google.com";
             case "wifi":
+                if (security === "nopass") {
+                    rreturn`WIFI:T:nopass;S:${ssid};;`;
+                };
                 return `WIFI:T:${security};S:${ssid};P:${password};;`;
             default:
                 return "";
@@ -34,19 +37,16 @@ export default function QRCodeGenerator() {
                     return "El texto no puede estar vacío";
                 }
                 break;
-
             case "url":
                 if (!url.startsWith("http://") && !url.startsWith("https://")) {
                     return "La URL debe comenzar con 'http://' o 'https://'";
                 }
                 break;
-
             case "wifi":
                 if (ssid.trim() === "") {
                     return "El nombre de la red no puede estar vacío";
                 }
                 break;
-
             default:
                 return "Tipo inválido";
         }
@@ -61,7 +61,6 @@ export default function QRCodeGenerator() {
 
     function downloadQR() {
         // Fuente Google... estuve luchando con este download por largo rato
-
         // 1. Buscamos el elemento SVG del QR en el DOM usando su id
         const svg = document.getElementById("qrCodeD");
         // 2. Creamos un serializador que convierte nodos del DOM a texto (string)
@@ -71,11 +70,11 @@ export default function QRCodeGenerator() {
         // 4. Creamos un "archivo" en memoria (Blob) con el SVG
         const blob = new Blob([source], { type: "image/svg+xml;charset=utf-8" });
         // 5. Generamos una URL temporal que apunta a ese archivo en memoria
-        const url = URL.createObjectURL(blob);
+        const blobUrl = URL.createObjectURL(blob);
         // 6. Creamos dinámicamente un link para forzar la descarga
         const link = document.createElement("a");
         // 7. Le asignamos la URL del archivo generado
-        link.href = url;
+        link.href = blobUrl;
         // 8. Definimos el nombre de archivo
         link.download = `qr-${type}.svg`;
         // 9. Insertamos el link en el DOM 
@@ -85,7 +84,7 @@ export default function QRCodeGenerator() {
         // 11. Eliminamos el link del DOM
         document.body.removeChild(link);
         // 12. Liberamos la URL temporal
-        URL.revokeObjectURL(url);
+        URL.revokeObjectURL(blobUrl);
     }
 
     return (
@@ -232,7 +231,11 @@ export default function QRCodeGenerator() {
                             level={level}
                         />
                     </div>
-                    <button className="btn btn-primary" onClick={downloadQR}>
+                    <button
+                        className="btn btn-primary"
+                        onClick={downloadQR}
+                        disabled={errorMsg !== ""}
+                    >                       
                         Descargar QR
                     </button>
                 </div>
