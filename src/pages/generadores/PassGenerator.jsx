@@ -117,7 +117,7 @@ export default function PassGenerator() {
 
     return (
         <div className="container mt-4">
-            <h2 className="mb-4">Password Generator</h2>
+            <h2 className="mb-4">Generador de Passwords</h2>
 
             {/* OUTPUT */}
             <div className="card mb-4">

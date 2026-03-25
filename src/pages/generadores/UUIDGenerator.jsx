@@ -81,7 +81,7 @@ export default function UUID_Generator() {
 
     return (
         <div className="container py-4">
-            <h2 className="mb-4">UUID Generator</h2>
+            <h2 className="mb-4">Generador de UUID</h2>
             <div className="row g-3">
 
                 {/* Version */}

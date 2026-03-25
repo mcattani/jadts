@@ -89,7 +89,7 @@ export default function QRCodeGenerator() {
 
     return (
         <div className="container mt-4">
-            <h2 className="mb-4">QR Generator</h2>
+            <h2 className="mb-4">Generador de códigos QR</h2>
             <div className="row">
                 {/* Controles */}
                 <div className="col-md-6">
