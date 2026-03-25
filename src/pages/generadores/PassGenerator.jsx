@@ -143,7 +143,7 @@ export default function PassGenerator() {
             {/* GENERATOR OPTIONS */}
             <div className="card mb-4">
                 <div className="card-body">
-                    <h5 className="card-title mb-3">Options</h5>
+                    <h5 className="card-title mb-3">Opciones</h5>
 
                     {/* LENGTH SLIDER */}
                     <div className="mb-3">
