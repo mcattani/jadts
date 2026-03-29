@@ -134,7 +134,7 @@ export default function PassGenerator() {
                             className="btn btn-outline-secondary"
                             onClick={handleCopy}
                         >
-                            Copy
+                            Copiar
                         </button>
                     </div>
                 </div>
