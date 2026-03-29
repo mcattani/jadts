@@ -26,6 +26,9 @@ export default function NavScroll() {
               <NavDropdown.Item as={Link} to="/passgenerator">Password </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/qrcodegenerator">QR Code</NavDropdown.Item>
             </NavDropdown>
+              <NavDropdown title="Crypto" id="navbarScrollingDropdown">
+              <NavDropdown.Item as={Link} to="/base64mod">Base64</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <Form className="d-flex">
             <Form.Control
