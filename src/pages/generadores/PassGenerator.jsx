@@ -101,7 +101,7 @@ export default function PassGenerator() {
     function handleGenerate() {
         const newPassword = generatePassword();
         setPassword(newPassword.password);
-        calculateStrength(newPassword.password);
+        calculateStrength(newPassword.password, newPassword.charsetSize);
         setCombinations(calculateCombinations(newPassword.password.length, newPassword.charsetSize));
     }
 
