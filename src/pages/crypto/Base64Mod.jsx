@@ -37,9 +37,33 @@ export default function Base64Mod() {
 
     }, [input, mode]);
 
+    // No funciona -> genera un bsae64 no estándar
     // encodeURIComponent -> convierte el str a 'ascii safe' que se pueda convertir
-    const encodeB64 = (str) => btoa(encodeURIComponent(str));
-    const decodeB64 = (str) => decodeURIComponent(atob(str));
+    //const encodeB64 = (str) => btoa(encodeURIComponent(str));
+    //const decodeB64 = (str) => decodeURIComponent(atob(str));
+
+    // Sugerencia en stackOverflow
+    // Flujo correcto: String → bytes (UTF-8) → Base64 / Base64 → bytes → String
+    function encodeB64(str) {
+        // Convertir string a bytes (UTF-8)
+        const bytes = new TextEncoder().encode(str);
+        // Convertir bytes a Base64
+        let binary = "";
+        bytes.forEach((b) => (binary += String.fromCharCode(b)));
+        return btoa(binary);
+    }
+
+    function decodeB64(str) {
+        // Convertir Base64 a bytes
+        const binary = atob(str);
+        // Convertir string a bytes
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) {
+            bytes[i] = binary.charCodeAt(i);
+        }
+        // Convertir bytes a string
+        return new TextDecoder().decode(bytes);
+    }
 
     const handleCopy = () => navigator.clipboard.writeText(output);
 
