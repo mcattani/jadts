@@ -22,7 +22,7 @@ export default function QRCodeGenerator() {
                 return url || "http://www.google.com";
             case "wifi":
                 if (security === "nopass") {
-                    rreturn`WIFI:T:nopass;S:${ssid};;`;
+                    return`WIFI:T:nopass;S:${ssid};;`;
                 };
                 return `WIFI:T:${security};S:${ssid};P:${password};;`;
             default:
