@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Base64Mod() {
 
@@ -6,23 +6,81 @@ export default function Base64Mod() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
     const [error, setError] = useState("");
-    const [copied, setCopied] = useState(false);
 
-    
-    function handleCopy(){
+    useEffect(() => {
+        if (!input) {
+            setOutput("");
+            setError("");
+            return;
+        }
+        try {
+            // Encode
+            if (mode === "encode") {
+                setOutput(encodeB64(input));
+                setError("");
+                return;
+            }
+            // Decode
+            if (!validateBase64(input)) {
+                setOutput("");
+                setError("Error: No es una string válida.");
+                return;
+            }
 
+            setOutput(decodeB64(input));
+            setError("");
+
+        } catch {
+            setOutput("");
+            setError("Error: No es una string válida.");
+        }
+
+    }, [input, mode]);
+
+    // encodeURIComponent -> convierte el str a 'ascii safe' que se pueda convertir
+    const encodeB64 = (str) => btoa(encodeURIComponent(str));
+    const decodeB64 = (str) => decodeURIComponent(atob(str));
+
+    const handleCopy = () => navigator.clipboard.writeText(output);
+
+    function validateBase64(str) {
+        // Regex obtenigo de StackOverflow (valida forma)
+        // https://stackoverflow.com/questions/7860392/determine-if-string-is-in-base64-using-javascript
+        const base64regex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+        if (!base64regex.test(str)) return false;
+
+        // atob (valida contenido)
+        try {
+            atob(str);
+            return true;
+        } catch {
+            return false;
+        }
+    }
+
+    function handleModeChange(newMode) {
+        // Si el valor previo es igual no hacer nada
+        if (newMode === mode) return;
+
+        // Si no lo son, invertimos el input/output
+        if (output) {
+            setInput(output);
+            setOutput("");
+        }
+        setError("");
+        setMode(newMode);
     }
 
     return (
         <div className="container mt-4">
             <h2>Base64 Encoder / Decoder</h2>
-            
+            <p className="text-muted">Encoding ≠ Encryption, pero vive en esta sección.</p>
             {/* TABS */}
             <ul className="nav nav-tabs mb-3 mt-4">
                 <li className="nav-item">
                     <button
                         className={`nav-link ${mode === "encode" ? "active" : ""}`}
-                        onClick={() => setMode("encode")}
+                        onClick={() => handleModeChange("encode")}
                     >
                         Encode
                     </button>
@@ -30,7 +88,7 @@ export default function Base64Mod() {
                 <li className="nav-item">
                     <button
                         className={`nav-link ${mode === "decode" ? "active" : ""}`}
-                        onClick={() => setMode("decode")}
+                        onClick={() => handleModeChange("decode")}
                     >
                         Decode
                     </button>
@@ -82,9 +140,6 @@ export default function Base64Mod() {
                 >
                     Copiar
                 </button>
-                {copied && (
-                    <span className="text-success">Copiado!</span>
-                )}
             </div>
         </div>
     );
