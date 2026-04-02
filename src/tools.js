@@ -1,4 +1,4 @@
-import { FaKey, FaQrcode, FaFont, FaHashtag } from "react-icons/fa";
+import { FaKey, FaQrcode, FaFont, FaHashtag, FaExchangeAlt } from "react-icons/fa";
 
 export const tools = [
     {
@@ -28,5 +28,11 @@ export const tools = [
         icon: FaQrcode,
         category: "Generadores",
         description: "Generador de códigos QR"
+    },
+    {
+        name: "Base64",
+        path: "/base64mod",
+        icon: FaExchangeAlt,
+        description: "Codificador / Decodificador Base64"
     }
 ]
