@@ -100,6 +100,17 @@ export default function PassGenerator() {
 
     function handleGenerate() {
         const newPassword = generatePassword();
+        
+        // Si devuelve string es error, debería devolver un objeto -> no se marcó ninguna casilla
+        if (typeof newPassword === "string") {
+            setPassword(newPassword);
+            setStrengthLabel("");
+            setStrengthColor("");
+            setStrengthPercent("");
+            setStrengthMessage("");
+            setCombinations("");
+            return;
+        }
         setPassword(newPassword.password);
         calculateStrength(newPassword.password, newPassword.charsetSize);
         setCombinations(calculateCombinations(newPassword.password.length, newPassword.charsetSize));
@@ -257,7 +268,7 @@ export default function PassGenerator() {
                         dangerouslySetInnerHTML={{
                             __html: `Combinaciones posibles: ${combinations}`
                         }}
-                    />    
+                    />
                 </div>
             </div>
 
