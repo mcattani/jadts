@@ -13,6 +13,7 @@ import UUID_Generator from './pages/generadores/UUIDGenerator';
 import PassGenerator from './pages/generadores/PassGenerator'
 import QRCodeGenerator from './pages/generadores/QRCodeGenerator';
 import Base64Mod from './pages/crypto/Base64Mod';
+import HashGenMod from './pages/crypto/HashGenMod';
 
 function App() {
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/passgenerator' element={<PassGenerator/>}/>
           <Route path='/qrcodegenerator' element={<QRCodeGenerator/>}/>
           <Route path='/base64mod' element={<Base64Mod/>}/>
+          <Route path='/hashgenmod'element={<HashGenMod/>}/>
           {/*Ruta no existente*/}
           {/*<Route path='*' element={<NotFound />} />*/}
         </Routes>
