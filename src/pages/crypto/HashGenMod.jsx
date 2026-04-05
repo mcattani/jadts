@@ -27,9 +27,7 @@ export default function HashGenMod() {
 
     }), [text];
 
-    function copyToClipboard(str) {
-
-    }
+    const copyToClipboard = (str) => {navigator.clipboard.writeText(str);};
 
     return (
         <div className="container mt-4">
