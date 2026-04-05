@@ -1,4 +1,8 @@
-import { FaKey, FaQrcode, FaFont, FaHashtag, FaExchangeAlt } from "react-icons/fa";
+import {
+    FaKey, FaQrcode, FaFont,
+    FaHashtag, FaExchangeAlt,
+    FaFingerprint
+} from "react-icons/fa";
 
 export const tools = [
     {
@@ -34,5 +38,11 @@ export const tools = [
         path: "/base64mod",
         icon: FaExchangeAlt,
         description: "Codificador / Decodificador Base64"
+    },
+    {
+        name: "Hash Gen",
+        path: "/hashgenmod",
+        icon: FaFingerprint,
+        description: "Generador de Hashes"
     }
 ]
