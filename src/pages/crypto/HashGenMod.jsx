@@ -68,6 +68,7 @@ export default function HashGenMod() {
                     <button
                         className="btn btn-outline-primary"
                         onClick={() => copyToClipboard(md5)}
+                        disabled={!md5}
                     >
                         Copiar
                     </button>
@@ -87,6 +88,7 @@ export default function HashGenMod() {
                     <button
                         className="btn btn-outline-primary"
                         onClick={() => copyToClipboard(sha1)}
+                        disabled={!sha1}
                     >
                         Copiar
                     </button>
@@ -106,6 +108,7 @@ export default function HashGenMod() {
                     <button
                         className="btn btn-outline-primary"
                         onClick={() => copyToClipboard(sha224)}
+                        disabled={!sha224}
                     >
                         Copiar
                     </button>
@@ -125,6 +128,7 @@ export default function HashGenMod() {
                     <button
                         className="btn btn-outline-primary"
                         onClick={() => copyToClipboard(sha256)}
+                        disabled={!sha256}
                     >
                         Copiar
                     </button>
@@ -144,6 +148,7 @@ export default function HashGenMod() {
                     <button
                         className="btn btn-outline-primary"
                         onClick={() => copyToClipboard(sha384)}
+                        disabled={!sha384}
                     >
                         Copiar
                     </button>
@@ -163,6 +168,7 @@ export default function HashGenMod() {
                     <button
                         className="btn btn-outline-primary"
                         onClick={() => copyToClipboard(sha512)}
+                        disabled={!sha512}
                     >
                         Copiar
                     </button>
@@ -182,6 +188,7 @@ export default function HashGenMod() {
                     <button
                         className="btn btn-outline-primary"
                         onClick={() => copyToClipboard(sha3)}
+                        disabled={!sha3}
                     >
                         Copiar
                     </button>
