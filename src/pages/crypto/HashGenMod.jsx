@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import CryptoJS from "crypto-js";
 
 export default function HashGenMod() {
 
@@ -8,6 +9,23 @@ export default function HashGenMod() {
     const [sha256, setSHA256] = useState("");
     const [sha512, setSHA512] = useState("");
 
+    useEffect(() => {
+        // Chequeamos que el campo texto no esté vacío
+        if (text.trim() === "") {
+            setMD5("");
+            setSHA1("");
+            setSHA256("");
+            setSHA512("");
+            return;
+        }
+
+        // Generamos los hashes
+        setMD5(CryptoJS.MD5(text).toString());
+        setSHA1(CryptoJS.SHA1(text).toString());
+        setSHA256(CryptoJS.SHA256(text).toString());
+        setSHA512(CryptoJS.SHA512(text).toString());
+
+    }), [text];
 
     function copyToClipboard(str) {
 
