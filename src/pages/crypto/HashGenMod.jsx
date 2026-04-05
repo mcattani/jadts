@@ -8,6 +8,9 @@ export default function HashGenMod() {
     const [sha1, setSHA1] = useState("");
     const [sha256, setSHA256] = useState("");
     const [sha512, setSHA512] = useState("");
+    const [sha224, setSHA224] = useState("");
+    const [sha384, setSHA384] = useState("");
+    const [sha3, setSHA3] = useState("");
 
     useEffect(() => {
         // Chequeamos que el campo texto no esté vacío
@@ -24,7 +27,9 @@ export default function HashGenMod() {
         setSHA1(CryptoJS.SHA1(text).toString());
         setSHA256(CryptoJS.SHA256(text).toString());
         setSHA512(CryptoJS.SHA512(text).toString());
-
+        setSHA224(CryptoJS.SHA224(text).toString());
+        setSHA384(CryptoJS.SHA384(text).toString());
+        setSHA3(CryptoJS.SHA3(text).toString());
     }), [text];
 
     const copyToClipboard = (str) => {navigator.clipboard.writeText(str);};
@@ -32,6 +37,7 @@ export default function HashGenMod() {
     return (
         <div className="container mt-4">
             <h2 className="mb-4">Hash Generator</h2>
+            <p className="text-muted">Hashing ≠ Encryption, pero vive en esta sección ¯\_(ツ)_/¯</p>
 
             {/* INPUT */}
             <div className="mb-4">
@@ -45,8 +51,6 @@ export default function HashGenMod() {
                     rows={4}
                 />
             </div>
-
-            {/* OUTPUT */}
 
             {/* MD5 */}
             <div className="mb-3">
@@ -86,6 +90,25 @@ export default function HashGenMod() {
                 </div>
             </div>
 
+            {/* SHA224 */}
+            <div className="mb-3">
+                <label className="form-label">SHA224</label>
+                <div className="d-flex gap-2">
+                    <input
+                        type="text"
+                        className="form-control font-monospace"
+                        value={sha224}
+                        readOnly
+                    />
+                    <button
+                        className="btn btn-outline-primary"
+                        onClick={() => copyToClipboard(sha224)}
+                    >
+                        Copiar
+                    </button>
+                </div>
+            </div>
+            
             {/* SHA256 */}
             <div className="mb-3">
                 <label className="form-label">SHA256</label>
@@ -105,6 +128,25 @@ export default function HashGenMod() {
                 </div>
             </div>
 
+            {/* SHA384 */}
+            <div className="mb-3">
+                <label className="form-label">SHA384</label>
+                <div className="d-flex gap-2">
+                    <input
+                        type="text"
+                        className="form-control font-monospace"
+                        value={sha384}
+                        readOnly
+                    />
+                    <button
+                        className="btn btn-outline-primary"
+                        onClick={() => copyToClipboard(sha384)}
+                    >
+                        Copiar
+                    </button>
+                </div>
+            </div>
+
             {/* SHA512 */}
             <div className="mb-3">
                 <label className="form-label">SHA512</label>
@@ -118,6 +160,25 @@ export default function HashGenMod() {
                     <button
                         className="btn btn-outline-primary"
                         onClick={() => copyToClipboard(sha512)}
+                    >
+                        Copiar
+                    </button>
+                </div>
+            </div>
+
+            {/* SHA3 */}
+            <div className="mb-3">
+                <label className="form-label">SHA3</label>
+                <div className="d-flex gap-2">
+                    <input
+                        type="text"
+                        className="form-control font-monospace"
+                        value={sha3}
+                        readOnly
+                    />
+                    <button
+                        className="btn btn-outline-primary"
+                        onClick={() => copyToClipboard(sha3)}
                     >
                         Copiar
                     </button>
