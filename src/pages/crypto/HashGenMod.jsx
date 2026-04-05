@@ -19,6 +19,9 @@ export default function HashGenMod() {
             setSHA1("");
             setSHA256("");
             setSHA512("");
+            setSHA224("");
+            setSHA384("");
+            setSHA3("");
             return;
         }
 
@@ -30,9 +33,9 @@ export default function HashGenMod() {
         setSHA224(CryptoJS.SHA224(text).toString());
         setSHA384(CryptoJS.SHA384(text).toString());
         setSHA3(CryptoJS.SHA3(text).toString());
-    }), [text];
+    }, [text]);
 
-    const copyToClipboard = (str) => {navigator.clipboard.writeText(str);};
+    const copyToClipboard = (str) => { navigator.clipboard.writeText(str); };
 
     return (
         <div className="container mt-4">
@@ -59,7 +62,7 @@ export default function HashGenMod() {
                     <input
                         type="text"
                         className="form-control font-monospace"
-                        value={md5}
+                        value={md5 || "-"}
                         readOnly
                     />
                     <button
@@ -78,7 +81,7 @@ export default function HashGenMod() {
                     <input
                         type="text"
                         className="form-control font-monospace"
-                        value={sha1}
+                        value={sha1 || "-"}
                         readOnly
                     />
                     <button
@@ -97,7 +100,7 @@ export default function HashGenMod() {
                     <input
                         type="text"
                         className="form-control font-monospace"
-                        value={sha224}
+                        value={sha224 || "-"}
                         readOnly
                     />
                     <button
@@ -108,7 +111,7 @@ export default function HashGenMod() {
                     </button>
                 </div>
             </div>
-            
+
             {/* SHA256 */}
             <div className="mb-3">
                 <label className="form-label">SHA256</label>
@@ -116,7 +119,7 @@ export default function HashGenMod() {
                     <input
                         type="text"
                         className="form-control font-monospace"
-                        value={sha256}
+                        value={sha256 || "-"}
                         readOnly
                     />
                     <button
@@ -135,7 +138,7 @@ export default function HashGenMod() {
                     <input
                         type="text"
                         className="form-control font-monospace"
-                        value={sha384}
+                        value={sha384 || "-"}
                         readOnly
                     />
                     <button
@@ -154,7 +157,7 @@ export default function HashGenMod() {
                     <input
                         type="text"
                         className="form-control font-monospace"
-                        value={sha512}
+                        value={sha512 || "-"}
                         readOnly
                     />
                     <button
@@ -173,7 +176,7 @@ export default function HashGenMod() {
                     <input
                         type="text"
                         className="form-control font-monospace"
-                        value={sha3}
+                        value={sha3 || "-"}
                         readOnly
                     />
                     <button
