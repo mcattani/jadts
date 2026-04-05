@@ -39,7 +39,7 @@ export default function HashGenMod() {
 
     return (
         <div className="container mt-4">
-            <h2 className="mb-4">Hash Generator</h2>
+            <h2 className="mb-4">Generador Hash</h2>
             <p className="text-muted">Hashing ≠ Encryption, pero vive en esta sección ¯\_(ツ)_/¯</p>
 
             {/* INPUT */}
