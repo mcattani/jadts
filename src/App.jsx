@@ -8,6 +8,7 @@ import Header from './layout/Header'
 
 // Pages
 import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 import LoremIpsum from './pages/generadores/LoremIpsum';
 import UUID_Generator from './pages/generadores/UUIDGenerator';
 import PassGenerator from './pages/generadores/PassGenerator'
@@ -34,7 +35,7 @@ function App() {
           <Route path='/base64mod' element={<Base64Mod/>}/>
           <Route path='/hashgenmod' element={<HashGenMod/>}/>
           {/*Ruta no existente*/}
-          {/*<Route path='*' element={<NotFound />} />*/}
+          <Route path='*' element={<NotFound/>}/>
         </Routes>
         <Footer />
       </Router>
