@@ -38,8 +38,19 @@ export default function HMACMod() {
 
     function handleVerify() {
         if (!verifyMessage || !verifyKey || !expectedHmac) return;
+        // Para evitar problemas de formato, espacios, mayúsculas, etc. normalizamos ambos HMAC a comparar
+        const generated = generateHmac(algorithm, verifyMessage, verifyKey)
+            .toString()
+            .trim()
+            .replace(/\s/g, "")
+            .toLowerCase();
 
+        const expected = expectedHmac
+            .trim()
+            .replace(/\s/g, "")
+            .toLowerCase();
 
+        setVerifyResult(generated === expected);
     }
 
     const handleCopy = () => { navigator.clipboard.writeText(result); }
@@ -48,7 +59,14 @@ export default function HMACMod() {
         setMessage("");
         setKey("");
         setResult("");
-    }
+    };
+
+    const handleClearVerify = () => {
+        setVerifyMessage("");
+        setVerifyKey("");
+        setExpectedHmac("");
+        setVerifyResult(null);
+    };
 
     return (
         <div className="container mt-4">
@@ -134,7 +152,7 @@ export default function HMACMod() {
                         <button
                             className="btn btn-outline-secondary"
                             onClick={handleClear}
-
+                            disabled={!message || !key}
                         >
                             Limpiar
                         </button>
@@ -156,7 +174,10 @@ export default function HMACMod() {
                             className="form-control"
                             rows="2"
                             value={verifyMessage}
-                            onChange={(e) => setVerifyMessage(e.target.value)}
+                            onChange={(e) => {
+                                setVerifyMessage(e.target.value);
+                                setVerifyResult(null);
+                            }}
                         />
                     </div>
 
@@ -167,7 +188,10 @@ export default function HMACMod() {
                             type="text"
                             className="form-control"
                             value={verifyKey}
-                            onChange={(e) => setVerifyKey(e.target.value)}
+                            onChange={(e) => {
+                                setVerifyKey(e.target.value);
+                                setVerifyResult(null);
+                            }}
                         />
                     </div>
 
@@ -205,14 +229,23 @@ export default function HMACMod() {
                         </div>
                     )}
 
-                    {/* Botón */}
+                    {/* Botones */}
+                    <div className="d-flex gap-2 mt-2">
                     <button
                         className="btn btn-primary"
                         onClick={handleVerify}
-                        disabled={!verifyMessage || !verifyKey || !expectedHmac}
+                        disabled={!verifyMessage && !verifyKey && !expectedHmac}
                     >
                         Verificar
                     </button>
+                    <button
+                        className="btn btn-outline-secondary"
+                        onClick={handleClearVerify}
+                        disabled={!verifyMessage || !verifyKey || !expectedHmac}
+                    >
+                        Limpiar
+                    </button>
+                    </div>
                 </div>
             </div>
         </div>
