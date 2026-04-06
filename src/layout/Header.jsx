@@ -30,6 +30,9 @@ export default function NavScroll() {
               <NavDropdown.Item as={Link} to="/base64mod">Base64</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/hashgenmod">Hash Gen</NavDropdown.Item>
             </NavDropdown>
+            <NavDropdown title="Crypto" id="navbarScrollingDropdown">
+              <NavDropdown.Item as={Link} to="/hmacmod">HMAC</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <Form className="d-flex">
             <Form.Control
