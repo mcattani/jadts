@@ -13,8 +13,8 @@ import LoremIpsum from './pages/generadores/LoremIpsum';
 import UUID_Generator from './pages/generadores/UUIDGenerator';
 import PassGenerator from './pages/generadores/PassGenerator'
 import QRCodeGenerator from './pages/generadores/QRCodeGenerator';
-import Base64Mod from './pages/crypto/Base64Mod';
-import HashGenMod from './pages/crypto/HashGenMod';
+import Base64Mod from './pages/encoders/Base64Mod';
+import HashGenMod from './pages/encoders/HashGenMod';
 
 function App() {
   useEffect(() => {
