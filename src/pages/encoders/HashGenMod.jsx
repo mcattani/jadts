@@ -40,8 +40,7 @@ export default function HashGenMod() {
     return (
         <div className="container mt-4">
             <h2 className="mb-4">Generador Hash</h2>
-            <p className="text-muted">Hashing ≠ Encryption, pero vive en esta sección ¯\_(ツ)_/¯</p>
-
+            
             {/* INPUT */}
             <div className="mb-4">
                 <label htmlFor="text-input" className="form-label">Texto</label>

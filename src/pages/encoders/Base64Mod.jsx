@@ -98,7 +98,7 @@ export default function Base64Mod() {
     return (
         <div className="container mt-4">
             <h2>Base64 Encoder / Decoder</h2>
-            <p className="text-muted">Encoding ≠ Encryption, pero vive en esta sección ¯\_(ツ)_/¯</p>
+            
             {/* TABS */}
             <ul className="nav nav-tabs mb-3 mt-4">
                 <li className="nav-item">
