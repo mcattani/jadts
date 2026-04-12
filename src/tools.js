@@ -1,7 +1,7 @@
 import {
     FaKey, FaQrcode, FaFont,
     FaHashtag, FaExchangeAlt,
-    FaFingerprint
+    FaFingerprint, FaShieldAlt
 } from "react-icons/fa";
 
 export const tools = [
@@ -44,5 +44,11 @@ export const tools = [
         path: "/hashgenmod",
         icon: FaFingerprint,
         description: "Generador de Hashes"
+    },
+    {
+        name: "HMAC Gen",
+        path: "/HMACMod",
+        icon: FaShieldAlt,
+        description: "Generador de HMACs"
     }
 ]
