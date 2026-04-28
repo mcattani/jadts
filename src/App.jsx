@@ -16,6 +16,7 @@ import QRCodeGenerator from './pages/generadores/QRCodeGenerator';
 import Base64Mod from './pages/encoders/Base64Mod';
 import HashGenMod from './pages/encoders/HashGenMod';
 import HMACMod from './pages/crypto/HMACMod';
+import AESMod from './pages/crypto/AESMod';
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
           <Route path='/base64mod' element={<Base64Mod/>}/>
           <Route path='/hashgenmod' element={<HashGenMod/>}/>
           <Route path='/hmacmod' element={<HMACMod/>}/>
+          <Route path='/aesmod' element={<AESMod/>}/>
           {/*Ruta no existente*/}
           <Route path='*' element={<NotFound/>}/>
         </Routes>

@@ -32,6 +32,7 @@ export default function NavScroll() {
             </NavDropdown>
             <NavDropdown title="Crypto" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/hmacmod">HMAC</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/aesmod">AES</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">
