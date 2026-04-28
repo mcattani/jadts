@@ -17,7 +17,9 @@ export default function AESMod() {
     }
 
     function handleClear() {
-
+        setInput("");
+        setKey("");
+        setOutput("");
     }
 
     const handleCopy = () => { navigator.clipboard.writeText(output); }
