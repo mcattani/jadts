@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CryptoJS from "crypto-js";
+import { FaArrowsRotate } from "react-icons/fa6";
 
 export default function HMACMod() {
 
@@ -12,6 +13,14 @@ export default function HMACMod() {
     const [verifyKey, setVerifyKey] = useState("");
     const [expectedHmac, setExpectedHmac] = useState("");
     const [verifyResult, setVerifyResult] = useState(null);
+
+    function handleSwapToVerify() {
+        if (!result) return;
+        setVerifyMessage(message);
+        setVerifyKey(key);
+        setExpectedHmac(result);
+        setVerifyResult(null);
+    }
 
     function generateHmac(algorithm, message, key) {
         switch (algorithm) {
@@ -141,13 +150,20 @@ export default function HMACMod() {
                         >
                             Generar
                         </button>
-
                         <button
                             className="btn btn-outline-secondary"
                             onClick={handleCopy}
                             disabled={!result}
                         >
                             Copiar
+                        </button>
+                        <button
+                            className="btn btn-info d-flex align-items-center justify-content-center"
+                            onClick={handleSwapToVerify}
+                            disabled={!result}
+                            title="Pasar datos a verificación"
+                        >
+                            <FaArrowsRotate />
                         </button>
                         <button
                             className="btn btn-outline-secondary"
@@ -231,20 +247,20 @@ export default function HMACMod() {
 
                     {/* Botones */}
                     <div className="d-flex gap-2 mt-2">
-                    <button
-                        className="btn btn-primary"
-                        onClick={handleVerify}
-                        disabled={!verifyMessage && !verifyKey && !expectedHmac}
-                    >
-                        Verificar
-                    </button>
-                    <button
-                        className="btn btn-outline-secondary"
-                        onClick={handleClearVerify}
-                        disabled={!verifyMessage || !verifyKey || !expectedHmac}
-                    >
-                        Limpiar
-                    </button>
+                        <button
+                            className="btn btn-primary"
+                            onClick={handleVerify}
+                            disabled={!verifyMessage && !verifyKey && !expectedHmac}
+                        >
+                            Verificar
+                        </button>
+                        <button
+                            className="btn btn-outline-secondary"
+                            onClick={handleClearVerify}
+                            disabled={!verifyMessage || !verifyKey || !expectedHmac}
+                        >
+                            Limpiar
+                        </button>
                     </div>
                 </div>
             </div>
