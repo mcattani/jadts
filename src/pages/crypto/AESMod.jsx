@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CryptoJS from "crypto-js";
+import { FaArrowsRotate } from "react-icons/fa6";
 
 export default function AESMod() {
 
@@ -7,6 +8,14 @@ export default function AESMod() {
     const [key, setKey] = useState("");
     const [output, setOutput] = useState("");
 
+    function handleSwap() {
+        if (!output||
+            output === "Clave incorrecta o mensaje no válido" ||
+            output === "Error al desencriptar")
+            return;
+        setInput(output);
+        setOutput("");       
+    }
 
     function handleEncrypt() {
         const encrypted = CryptoJS.AES.encrypt(input, key.trim()).toString();
@@ -15,7 +24,7 @@ export default function AESMod() {
 
     function handleDecrypt() {
         try {
-            const decrypted = CryptoJS.AES.decrypt(input, key).toString(CryptoJS.enc.Utf8);
+            const decrypted = CryptoJS.AES.decrypt(input, key.trim()).toString(CryptoJS.enc.Utf8);
             setOutput(decrypted || "Clave incorrecta o mensaje no válido");
         } catch {
             setOutput("Error al desencriptar");
@@ -76,6 +85,15 @@ export default function AESMod() {
                             disabled={!input || !key}
                         >
                             Desencriptar
+                        </button>
+
+                        <button
+                            className="btn btn-info d-flex align-items-center justify-content-center"
+                            onClick={handleSwap}
+                            disabled={!output}
+                            title="Pasar Output a Input"
+                        >
+                            <FaArrowsRotate />
                         </button>
 
                         <button
