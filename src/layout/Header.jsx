@@ -7,7 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaDev } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-export default function NavScroll() {
+export default function NavScroll({ searchTerm, setSearchTerm }) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -26,7 +26,7 @@ export default function NavScroll() {
               <NavDropdown.Item as={Link} to="/passgenerator">Password </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/qrcodegenerator">QR Code</NavDropdown.Item>
             </NavDropdown>
-              <NavDropdown title="Encoders" id="navbarScrollingDropdown">
+            <NavDropdown title="Encoders" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/base64mod">Base64</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/hashgenmod">Hash Gen</NavDropdown.Item>
             </NavDropdown>
@@ -41,9 +41,9 @@ export default function NavScroll() {
               placeholder="Buscar"
               className="me-2"
               aria-label="Buscar"
-              disabled = "true"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Button variant="outline-success" disabled="true">Buscar</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

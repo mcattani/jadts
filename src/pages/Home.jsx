@@ -2,12 +2,17 @@
 import ToolCard from "../components/ToolCard";
 import { tools } from "../tools";
 
-
 // Iconos
 import { BsConeStriped } from "react-icons/bs";
 
+export default function Home({ searchTerm }) {
 
-export default function Home() {
+  const query = searchTerm.toLowerCase().trim();
+
+  const filteredTools = tools.filter(tool =>
+    tool.name.toLowerCase().includes(query)
+  );
+
   return (
     <main className="container py-5">
       <div className="row justify-content-center text-center">
@@ -27,13 +32,17 @@ export default function Home() {
           <div className="container mt-4">
             <h1 className="mb-4">Dev Tools</h1>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-              {tools.map((tool, index) => (
-                <ToolCard key={index} tool={tool} />
-              ))}
+              {filteredTools.length > 0 ? (
+                filteredTools.map((tool, index) => (
+                  <ToolCard key={index} tool={tool} />
+                ))
+              ) : (
+                <p className="text-muted fs-5 mb-0">No se encontraron resultados.</p>
+              )}
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </main >
   );
 }

@@ -49,13 +49,13 @@ export const tools = [
     },
     {
         name: "HMAC Gen",
-        path: "/HMACMod",
+        path: "/hmacmod",
         icon: FaShieldAlt,
         description: "Generador de HMACs"
     },
     {
         name: "AES",
-        path: "/AESMod",
+        path: "/aesmod",
         icon: FaLock,
         description: "Encripta / Desencripta AES"
     }

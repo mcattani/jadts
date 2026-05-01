@@ -1,6 +1,7 @@
 // Bibliotecas
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { useState } from 'react';
 
 // Layout
 import Footer from './layout/Footer';
@@ -24,12 +25,14 @@ function App() {
     document.body.setAttribute('data-bs-theme', 'dark');
   }, []);
 
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <>
       <Router>
-        <Header />
+        <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={<Home searchTerm={searchTerm} />}/>
           <Route path='/loremipsum' element={<LoremIpsum/>}/>
           <Route path='/uuidgenerator' element={<UUID_Generator/>}/>
           <Route path='/passgenerator' element={<PassGenerator/>}/>
