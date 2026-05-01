@@ -9,11 +9,17 @@ export default function AESMod() {
 
 
     function handleEncrypt() {
-
+        const encrypted = CryptoJS.AES.encrypt(input, key.trim()).toString();
+        setOutput(encrypted);
     }
 
     function handleDecrypt() {
-
+        try {
+            const decrypted = CryptoJS.AES.decrypt(input, key).toString(CryptoJS.enc.Utf8);
+            setOutput(decrypted || "Clave incorrecta o mensaje no válido");
+        } catch {
+            setOutput("Error al desencriptar");
+        }
     }
 
     function handleClear() {
