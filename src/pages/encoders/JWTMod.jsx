@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { decodeJwt } from "jose";
 
 export default function JWTMod() {
 
-    const [activeTab, setActiveTab] = useState("Decodificar");
+    const [activeTab, setActiveTab] = useState("decode");
     const [token, setToken] = useState("");
     const [payload, setPayload] = useState("");
     const [secret, setSecret] = useState("");
@@ -12,7 +13,36 @@ export default function JWTMod() {
     const [error, setError] = useState("");
 
     function handleDecode() {
+        setError("");
 
+        try {
+            // Validación básica del token
+            if (!token) throw new Error("JWT vacío");
+
+            // Un JWT típico tiene 3 partes: header.payload.signature
+            const parts = token.split(".");
+            if (parts.length !== 3) throw new Error("JWT mal formado");
+
+            // Obtenemos el header decodificando la primera parte (base64url)
+            const header = JSON.parse(atob(parts[0]));
+
+            // Obtenemos el payload
+            const payload = decodeJwt(token);
+
+            // Firma
+            const signature = parts[2];
+
+            setOutput({
+                // Formateamos el header y payload para mostrarlo formateado
+                header: JSON.stringify(header, null, 2),
+                payload: JSON.stringify(payload, null, 2),
+                signature,
+            });
+
+        } catch (err) {
+            setError("Token inválido o mal formado.");
+            setOutput(null);
+        }
     }
 
     function handleVerify() {
@@ -76,15 +106,15 @@ export default function JWTMod() {
                         <div className="row">
                             <div className="col-md-4">
                                 <h6>Header</h6>
-                                <pre className="bg-light p-2">{output.header}</pre>
+                                <pre className="bg-dark text-light p-2 rounded border border-secondary">{output.header}</pre>
                             </div>
                             <div className="col-md-4">
                                 <h6>Payload</h6>
-                                <pre className="bg-light p-2">{output.payload}</pre>
+                                <pre className="bg-dark text-light p-2 rounded border border-secondary">{output.payload}</pre>
                             </div>
                             <div className="col-md-4">
                                 <h6>Firma</h6>
-                                <pre className="bg-light p-2">{output.signature}</pre>
+                                <pre className="bg-dark text-light p-2 rounded border border-secondary">{output.signature}</pre>
                             </div>
                         </div>
                     )}
@@ -186,7 +216,7 @@ export default function JWTMod() {
                     )}
 
                     {verifyResult?.payload && (
-                        <pre className="bg-light p-2">
+                        <pre className="bg-dark text-light p-2 rounded border border-secondary">
                             {JSON.stringify(verifyResult.payload, null, 2)}
                         </pre>
                     )}
