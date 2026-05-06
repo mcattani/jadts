@@ -6,7 +6,7 @@ export default function JWTMod() {
     const [token, setToken] = useState("");
     const [payload, setPayload] = useState("");
     const [secret, setSecret] = useState("");
-    const [expiration, setExpiration] = useState("");
+    const [expiration, setExpiration] = useState("1h");
     const [output, setOutput] = useState(null);
     const [verifyResult, setVerifyResult] = useState(null);
     const [error, setError] = useState("");
@@ -19,11 +19,15 @@ export default function JWTMod() {
 
     }
 
-    function copyToClipboard() {
+    function handleGenerate() {
 
     }
 
     function handleSwap() {
+
+    }
+
+    function copyToClipboard() {
 
     }
 
@@ -33,7 +37,7 @@ export default function JWTMod() {
 
             {/* Tabs */}
             <ul className="nav nav-tabs mb-3">
-                {["decode", "generate", "verify"].map((tab) => (
+                {["Decodificar", "Generar", "Verificar"].map((tab) => (
                     <li className="nav-item" key={tab}>
                         <button
                             className={`nav-link ${activeTab === tab ? "active" : ""}`}
@@ -46,7 +50,7 @@ export default function JWTMod() {
             </ul>
 
             {/* DECODE */}
-            {activeTab === "decode" && (
+            {activeTab === "Decodificar" && (
                 <div>
                     <textarea
                         className="form-control mb-3"
@@ -82,7 +86,7 @@ export default function JWTMod() {
             )}
 
             {/* GENERATE */}
-            {activeTab === "generate" && (
+            {activeTab === "Generar" && (
                 <div>
                     <textarea
                         className="form-control mb-2"
@@ -95,7 +99,7 @@ export default function JWTMod() {
                     <input
                         type="text"
                         className="form-control mb-2"
-                        placeholder="Secret key"
+                        placeholder="Key secreta (ej: mysecret)"
                         value={secret}
                         onChange={(e) => setSecret(e.target.value)}
                     />
@@ -103,7 +107,7 @@ export default function JWTMod() {
                     <input
                         type="text"
                         className="form-control mb-3"
-                        placeholder="Expiration (ej: 1h, 2d)"
+                        placeholder="Vencimiento (ej: 1h, 2d)"
                         value={expiration}
                         onChange={(e) => setExpiration(e.target.value)}
                     />
@@ -124,13 +128,13 @@ export default function JWTMod() {
 
                             <div className="d-flex gap-2">
                                 <button className="btn btn-outline-secondary" onClick={copyToClipboard}>
-                                    Copy
+                                    Copiar
                                 </button>
 
                                 <button
                                     className="btn btn-info"
                                     onClick={handleSwap}
-                                    title="Send to Verify"
+                                    title="Enviar a Verify"
                                 >
                                     Swap → Verify
                                 </button>
@@ -141,7 +145,7 @@ export default function JWTMod() {
             )}
 
             {/* VERIFY */}
-            {activeTab === "verify" && (
+            {activeTab === "Verificar" && (
                 <div>
                     <textarea
                         className="form-control mb-2"
@@ -154,13 +158,13 @@ export default function JWTMod() {
                     <input
                         type="text"
                         className="form-control mb-3"
-                        placeholder="Secret key"
+                        placeholder="Key secreta (ej: mysecret)"
                         value={secret}
                         onChange={(e) => setSecret(e.target.value)}
                     />
 
                     <button className="btn btn-warning mb-3" onClick={handleVerify}>
-                        Verify
+                        Verificar
                     </button>
 
                     {verifyResult && (
