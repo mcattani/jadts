@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function JWTMod() {
 
-    const [activeTab, setActiveTab] = useState("decode");
+    const [activeTab, setActiveTab] = useState("Decodificar");
     const [token, setToken] = useState("");
     const [payload, setPayload] = useState("");
     const [secret, setSecret] = useState("");
@@ -31,26 +31,32 @@ export default function JWTMod() {
 
     }
 
+    const tabs = [
+        { id: "decode", label: "Decodificar" },
+        { id: "generate", label: "Generar" },
+        { id: "verify", label: "Verificar" },
+    ];
+
     return (
         <div className="container mt-4">
             <h3 className="mb-3">JWT Tool</h3>
 
             {/* Tabs */}
             <ul className="nav nav-tabs mb-3">
-                {["Decodificar", "Generar", "Verificar"].map((tab) => (
-                    <li className="nav-item" key={tab}>
+                {tabs.map((tab) => (
+                    <li className="nav-item" key={tab.id}>
                         <button
-                            className={`nav-link ${activeTab === tab ? "active" : ""}`}
-                            onClick={() => setActiveTab(tab)}
+                            className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
+                            onClick={() => setActiveTab(tab.id)}
                         >
-                            {tab.toUpperCase()}
+                            {tab.label}
                         </button>
                     </li>
                 ))}
             </ul>
 
             {/* DECODE */}
-            {activeTab === "Decodificar" && (
+            {activeTab === "decode" && (
                 <div>
                     <textarea
                         className="form-control mb-3"
@@ -61,12 +67,12 @@ export default function JWTMod() {
                     />
 
                     <button className="btn btn-primary mb-3" onClick={handleDecode}>
-                        Decode
+                        Decodificar
                     </button>
 
                     {error && <div className="alert alert-danger">{error}</div>}
 
-                    {output && (
+                    {output?.header && (
                         <div className="row">
                             <div className="col-md-4">
                                 <h6>Header</h6>
@@ -77,7 +83,7 @@ export default function JWTMod() {
                                 <pre className="bg-light p-2">{output.payload}</pre>
                             </div>
                             <div className="col-md-4">
-                                <h6>Signature</h6>
+                                <h6>Firma</h6>
                                 <pre className="bg-light p-2">{output.signature}</pre>
                             </div>
                         </div>
@@ -86,7 +92,7 @@ export default function JWTMod() {
             )}
 
             {/* GENERATE */}
-            {activeTab === "Generar" && (
+            {activeTab === "generate" && (
                 <div>
                     <textarea
                         className="form-control mb-2"
@@ -116,7 +122,7 @@ export default function JWTMod() {
                         Generar JWT
                     </button>
 
-                    {output && (
+                    {typeof output === "string" && (
                         <div>
                             <h6>Generated Token</h6>
                             <textarea
@@ -127,14 +133,17 @@ export default function JWTMod() {
                             />
 
                             <div className="d-flex gap-2">
-                                <button className="btn btn-outline-secondary" onClick={copyToClipboard}>
+                                <button
+                                    className="btn btn-outline-secondary"
+                                    onClick={copyToClipboard}
+                                >
                                     Copiar
                                 </button>
 
                                 <button
                                     className="btn btn-info"
                                     onClick={handleSwap}
-                                    title="Enviar a Verify"
+                                    title="Enviar a Verificar"
                                 >
                                     Swap → Verify
                                 </button>
@@ -145,7 +154,7 @@ export default function JWTMod() {
             )}
 
             {/* VERIFY */}
-            {activeTab === "Verificar" && (
+            {activeTab === "verify" && (
                 <div>
                     <textarea
                         className="form-control mb-2"
@@ -172,7 +181,7 @@ export default function JWTMod() {
                             className={`alert ${verifyResult.valid ? "alert-success" : "alert-danger"
                                 }`}
                         >
-                            {verifyResult.valid ? "Valid JWT" : "Invalid JWT"}
+                            {verifyResult.valid ? "JWT válido" : "JWT inválido"}
                         </div>
                     )}
 
