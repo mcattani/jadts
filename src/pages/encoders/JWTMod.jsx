@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { decodeJwt } from "jose";
 import { SignJWT } from "jose";
+import { jwtVerify } from "jose";
 
 export default function JWTMod() {
 
@@ -74,8 +75,27 @@ export default function JWTMod() {
         }
     }
 
-    function handleVerify() {
+    async function handleVerify() {
+        setError("");
 
+        try {
+            // Validación básica
+            if (!token) throw new Error("JWT vacío");
+            if (!secret) throw new Error("Key secreta vacía");
+
+            // Convertimos la clave secreta a bytes
+            const secretBytes = new TextEncoder().encode(secret);
+
+            // Verificamos el JWT
+            const { payload } = await jwtVerify(token, secretBytes);
+            
+            // Si no lanza error, el JWT es válido
+            setVerifyResult({ valid: true, payload });
+
+        } catch (err) {
+            setVerifyResult({ valid: false });
+            setError("Error al verificar el JWT: " + err.message);
+        }
     }
 
     function handleSwap() {
