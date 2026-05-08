@@ -153,9 +153,19 @@ export default function JWTMod() {
                         onChange={(e) => setToken(e.target.value)}
                     />
 
-                    <button className="btn btn-primary mb-3" onClick={handleDecode}>
-                        Decodificar
-                    </button>
+                    <div className="d-flex gap-2 mb-3">
+                        <button className="btn btn-primary mb-3" onClick={handleDecode}>
+                            Decodificar
+                        </button>
+
+                        <button
+                            className="btn btn-secondary mb-3 "
+                            onClick={handleClear}
+                            disabled={!token}
+                        >
+                            Limpiar
+                        </button>
+                    </div>
 
                     {error && <div className="alert alert-danger">{error}</div>}
 
@@ -223,8 +233,8 @@ export default function JWTMod() {
                         >
                             Limpiar
                         </button>
-
                     </div>
+                    
                     {error && <div className="alert alert-danger">{error}</div>}
 
                     {typeof output === "string" && (
