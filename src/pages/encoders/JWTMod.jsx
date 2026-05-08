@@ -88,7 +88,7 @@ export default function JWTMod() {
 
             // Verificamos el JWT
             const { payload } = await jwtVerify(token, secretBytes);
-            
+
             // Si no lanza error, el JWT es válido
             setVerifyResult({ valid: true, payload });
 
@@ -102,9 +102,19 @@ export default function JWTMod() {
 
     }
 
+    // Limpia todos los campos y resultados
+    function handleClear() {
+        setToken("");
+        setSecret("");
+        setOutput(null);
+        setVerifyResult(null);
+        setError("");
+        setPayload("");
+    }
+
     const copyToClipboard = () => { navigator.clipboard.writeText(output); }
 
-
+    // Definimos las tabs para no repetir código
     const tabs = [
         { id: "decode", label: "Decodificar" },
         { id: "generate", label: "Generar" },
@@ -124,7 +134,7 @@ export default function JWTMod() {
                             onClick={() => {
                                 setActiveTab(tab.id)
                                 setError("")
-                                }}
+                            }}
                         >
                             {tab.label}
                         </button>
@@ -201,9 +211,20 @@ export default function JWTMod() {
                         <option value="30d">30 días</option>
                     </select>
 
-                    <button className="btn btn-success mb-3" onClick={handleGenerate}>
-                        Generar JWT
-                    </button>
+                    <div className="d-flex gap-2 mb-3">
+                        <button className="btn btn-success mb-3" onClick={handleGenerate}>
+                            Generar JWT
+                        </button>
+
+                        <button
+                            className="btn btn-secondary mb-3 "
+                            onClick={handleClear}
+                            disabled={!payload && !secret}
+                        >
+                            Limpiar
+                        </button>
+
+                    </div>
                     {error && <div className="alert alert-danger">{error}</div>}
 
                     {typeof output === "string" && (
@@ -256,9 +277,19 @@ export default function JWTMod() {
                         onChange={(e) => setSecret(e.target.value)}
                     />
 
-                    <button className="btn btn-warning mb-3" onClick={handleVerify}>
-                        Verificar
-                    </button>
+                    <div className="d-flex gap-2 mb-3">
+                        <button className="btn btn-warning mb-3" onClick={handleVerify}>
+                            Verificar
+                        </button>
+
+                        <button
+                            className="btn btn-secondary mb-3 "
+                            onClick={handleClear}
+                            disabled={!token || !secret}
+                        >
+                            Limpiar
+                        </button>
+                    </div>
 
                     {verifyResult && (
                         <div
