@@ -102,7 +102,10 @@ export default function JWTMod() {
                     <li className="nav-item" key={tab.id}>
                         <button
                             className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
-                            onClick={() => setActiveTab(tab.id)}
+                            onClick={() => {
+                                setActiveTab(tab.id)
+                                setError("")
+                                }}
                         >
                             {tab.label}
                         </button>
