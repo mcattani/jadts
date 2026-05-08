@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { decodeJwt } from "jose";
+import { SignJWT } from "jose";
 
 export default function JWTMod() {
 
@@ -45,11 +46,35 @@ export default function JWTMod() {
         }
     }
 
-    function handleVerify() {
+    // Sign es asíncrono
+    async function handleGenerate() {
+        setError("");
 
+        try {
+            // Validación básica
+            if (!payload) throw new Error("Payload vacío");
+            if (!secret) throw new Error("Key secreta vacía");
+
+            // Parseamos el payload para asegurarnos que es JSON válido
+            const payloadObj = JSON.parse(payload);
+
+            // Convertimos la clave secreta a bytes (La secret NO puede ser string)
+            const secretBytes = new TextEncoder().encode(secret);
+
+            // Creamos el JWT
+            const jwt = await new SignJWT(payloadObj)
+                .setProtectedHeader({ alg: "HS256", typ: "JWT" })
+                .setExpirationTime(expiration || "1h") // Si no se especifica, 1 hora por defecto
+                .sign(secretBytes);
+
+            setOutput(jwt);
+        } catch (err) {
+            setError("Error al generar el JWT: " + err.message);
+            setOutput(null);
+        }
     }
 
-    function handleGenerate() {
+    function handleVerify() {
 
     }
 
@@ -140,17 +165,24 @@ export default function JWTMod() {
                         onChange={(e) => setSecret(e.target.value)}
                     />
 
-                    <input
-                        type="text"
-                        className="form-control mb-3"
-                        placeholder="Vencimiento (ej: 1h, 2d)"
+                    <select
+                        className="form-select mb-3"
                         value={expiration}
                         onChange={(e) => setExpiration(e.target.value)}
-                    />
+                    >
+                        <option value="15m">15 minutos</option>
+                        <option value="30m">30 minutos</option>
+                        <option value="1h">1 hora</option>
+                        <option value="12h">12 horas</option>
+                        <option value="1d">1 día</option>
+                        <option value="7d">7 días</option>
+                        <option value="30d">30 días</option>
+                    </select>
 
                     <button className="btn btn-success mb-3" onClick={handleGenerate}>
                         Generar JWT
                     </button>
+                    {error && <div className="alert alert-danger">{error}</div>}
 
                     {typeof output === "string" && (
                         <div>
