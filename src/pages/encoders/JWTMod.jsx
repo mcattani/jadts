@@ -82,9 +82,8 @@ export default function JWTMod() {
 
     }
 
-    function copyToClipboard() {
+    const copyToClipboard = () => { navigator.clipboard.writeText(output); }
 
-    }
 
     const tabs = [
         { id: "decode", label: "Decodificar" },
