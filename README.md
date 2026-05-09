@@ -121,3 +121,7 @@ src/
 
 Para más detalles sobre este proyecto y otros contenidos relacionados, visita:
 - 🔗 [The Nerdy Apprentice Blog](https://thenerdyapprentice.blogspot.com/)
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia Pública General de GNU versión 3.0 (GPL-3.0). Consulta el archivo [LICENSE](LICENSE) para más detalles.

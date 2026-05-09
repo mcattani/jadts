@@ -2,6 +2,7 @@
   "name": "jadts",
   "private": true,
   "version": "0.12.3",
+  "license": "GPL-3.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
