@@ -99,7 +99,8 @@ export default function JWTMod() {
     }
 
     function handleSwap() {
-
+        setActiveTab("verify");
+        setToken(output);
     }
 
     // Limpia todos los campos y resultados
