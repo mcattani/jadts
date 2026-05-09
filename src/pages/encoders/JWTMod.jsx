@@ -14,6 +14,8 @@ export default function JWTMod() {
     const [error, setError] = useState("");
     const [isValidJson, setIsValidJson] = useState(true);
 
+
+    // Función para validar si un string es JSON válido
     function validateJson(jsonString) {
         try {
             JSON.parse(jsonString);
@@ -143,8 +145,10 @@ export default function JWTMod() {
                         <button
                             className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
                             onClick={() => {
-                                setActiveTab(tab.id)
-                                setError("")
+                                setActiveTab(tab.id);
+                                setError("");
+                                setOutput(null);
+                                setVerifyResult(null);
                             }}
                         >
                             {tab.label}
@@ -249,7 +253,7 @@ export default function JWTMod() {
                             Limpiar
                         </button>
                     </div>
-                    
+
                     {error && <div className="alert alert-danger">{error}</div>}
 
                     {typeof output === "string" && (
