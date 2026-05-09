@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { decodeJwt } from "jose";
-import { SignJWT } from "jose";
-import { jwtVerify } from "jose";
+import { decodeJwt, SignJWT, jwtVerify } from "jose";
+import { FaExchangeAlt } from 'react-icons/fa';
 
 export default function JWTMod() {
 
@@ -261,7 +260,7 @@ export default function JWTMod() {
                                     onClick={handleSwap}
                                     title="Enviar a Verificar"
                                 >
-                                    Swap → Verify
+                                    <FaExchangeAlt /> Swap to Verify
                                 </button>
                             </div>
                         </div>
