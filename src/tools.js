@@ -2,7 +2,7 @@ import {
     FaKey, FaQrcode, FaFont,
     FaHashtag, FaExchangeAlt,
     FaFingerprint, FaShieldAlt,
-    FaLock
+    FaLock, FaIdCard
 } from "react-icons/fa";
 
 
@@ -58,5 +58,11 @@ export const tools = [
         path: "/aesmod",
         icon: FaLock,
         description: "Encripta / Desencripta AES"
+    },
+    {
+        name: "JWT",
+        path: "/jwtmod",
+        icon: FaIdCard,
+        description: "Generador de JSON Web Tokens"
     }
 ]
