@@ -12,6 +12,16 @@ export default function JWTMod() {
     const [output, setOutput] = useState(null);
     const [verifyResult, setVerifyResult] = useState(null);
     const [error, setError] = useState("");
+    const [isValidJson, setIsValidJson] = useState(true);
+
+    function validateJson(jsonString) {
+        try {
+            JSON.parse(jsonString);
+            return true;
+        } catch {
+            return false;
+        }
+    }
 
     function handleDecode() {
         setError("");
@@ -110,6 +120,7 @@ export default function JWTMod() {
         setVerifyResult(null);
         setError("");
         setPayload("");
+        setIsValidJson(true);
     }
 
     const copyToClipboard = () => { navigator.clipboard.writeText(output); }
@@ -192,12 +203,16 @@ export default function JWTMod() {
             {activeTab === "generate" && (
                 <div>
                     <textarea
-                        className="form-control mb-2"
+                        className={`form-control mb-2 ${!isValidJson && payload ? 'is-invalid' : ''}`}
                         rows="4"
                         placeholder='Payload JSON (ej: {"user":"admin"})'
                         value={payload}
-                        onChange={(e) => setPayload(e.target.value)}
+                        onChange={(e) => {
+                            setPayload(e.target.value);
+                            setIsValidJson(validateJson(e.target.value));
+                        }}
                     />
+                    {!isValidJson && payload && <div className="invalid-feedback">JSON inválido</div>}
 
                     <input
                         type="text"
@@ -222,7 +237,7 @@ export default function JWTMod() {
                     </select>
 
                     <div className="d-flex gap-2 mb-3">
-                        <button className="btn btn-success mb-3" onClick={handleGenerate}>
+                        <button className="btn btn-success mb-3" onClick={handleGenerate} disabled={!payload || !secret || !isValidJson}>
                             Generar JWT
                         </button>
 
