@@ -19,6 +19,7 @@ import HashGenMod from './pages/encoders/HashGenMod';
 import HMACMod from './pages/crypto/HMACMod';
 import AESMod from './pages/crypto/AESMod';
 import JWTMod from './pages/encoders/JWTMod';
+import JSONFormatter from './pages/formatters/JSONFormatter';
 
 function App() {
   useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
           <Route path='/hmacmod' element={<HMACMod/>}/>
           <Route path='/aesmod' element={<AESMod/>}/>
           <Route path='/jwtmod' element={<JWTMod/>}/>
+          <Route path='/jsonformatter' element={<JSONFormatter/>}/>
           {/*Ruta no existente*/}
           <Route path='*' element={<NotFound/>}/>
         </Routes>

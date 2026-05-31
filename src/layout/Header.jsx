@@ -36,7 +36,7 @@ export default function NavScroll({ searchTerm, setSearchTerm }) {
               <NavDropdown.Item as={Link} to="/aesmod">AES</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Formatters" id="navbarScrollingDropdown">
-              <NavDropdown.Item as={Link} to="">JSON</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/jsonformatter">JSON</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">
