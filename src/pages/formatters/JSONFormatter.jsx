@@ -15,7 +15,7 @@ export default function JSONFormatter() {
     const [alertVariant, setAlertVariant] = useState("success");
 
     function handleFormat() {
-        try{
+        try {
             const obj = JSON.parse(input);
             setOutput(JSON.stringify(obj, null, 4));
             setMessage("JSON formateado correctamente.");
@@ -28,7 +28,16 @@ export default function JSONFormatter() {
     };
 
     function handleMinify() {
-
+        try {
+            const obj = JSON.parse(input);
+            setOutput(JSON.stringify(obj));
+            setMessage("JSON comprimido correctamente.")
+            setAlertVariant("success");
+        } catch (error) {
+            setOutput("");
+            setMessage(`Error: JSON inválido -> ${error.message}`);
+            setAlertVariant("danger");
+        }
     };
 
     function handleValidate() {
