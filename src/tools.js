@@ -5,7 +5,6 @@ import {
     FaLock, FaIdCard
 } from "react-icons/fa";
 
-
 export const tools = [
     {
         name: "Lorem Ipsum",

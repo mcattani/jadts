@@ -57,8 +57,7 @@ export default function JSONFormatter() {
         setMessage("");
     };
 
-    //const handleCopy = () => navigator.clipboard.writeText(output);
-    function handleCopy(){
+    function handleCopy() {
         navigator.clipboard.writeText(output);
         setMessage("Copiado al portapapeles.");
         setAlertVariant("success");
