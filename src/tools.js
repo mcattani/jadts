@@ -2,7 +2,7 @@ import {
     FaKey, FaQrcode, FaFont,
     FaHashtag, FaExchangeAlt,
     FaFingerprint, FaShieldAlt,
-    FaLock, FaIdCard
+    FaLock, FaIdCard, FaFileCode
 } from "react-icons/fa";
 
 export const tools = [
@@ -63,5 +63,11 @@ export const tools = [
         path: "/jwtmod",
         icon: FaIdCard,
         description: "Generador de JSON Web Tokens"
+    },
+    {
+        name: "JSON Formatter",
+        path: "/jsonformatter",
+        icon: FaFileCode,
+        description: "Formatea, valida y comprime JSON"
     }
 ]
