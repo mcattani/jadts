@@ -4,7 +4,7 @@ Colección de herramientas web para desarrolladores.
 
 El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https://thenerdyapprentice.blogspot.com/)
 
-![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![Version](https://img.shields.io/badge/Version-0.12.3-blue)
+![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![Version](https://img.shields.io/badge/Version-0.13.3-blue) ![License](https://img.shields.io/badge/License-GPL--3.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-16%2B-339933?logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-^19.2.0-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-^7.3.1-646CFF?logo=vite&logoColor=white)
 
 ## Descripción
 
@@ -25,6 +25,9 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 - **UUID** - Generador de identificadores únicos universales
 - **Contraseñas** - Generador de contraseñas seguras
 - **Códigos QR** - Generador de códigos QR
+
+### Formatters
+- **JSONFormatter** - Formateador y validador de JSON
 
 ### Codificación y Encriptación
 - **Base64** - Codificador/Decodificador Base64
@@ -101,6 +104,7 @@ src/
 │   ├── generadores/      # Generadores de contenido
 │   ├── encoders/         # Codificadores y JWT
 │   ├── crypto/           # Herramientas criptográficas
+│   ├── formatters/       # Herramientas de formateo
 │   └── Home.jsx          # Página principal
 ├── components/           # Componentes reutilizables
 ├── layout/              # Componentes de layout
