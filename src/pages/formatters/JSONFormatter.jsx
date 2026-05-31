@@ -15,7 +15,16 @@ export default function JSONFormatter() {
     const [alertVariant, setAlertVariant] = useState("success");
 
     function handleFormat() {
-
+        try{
+            const obj = JSON.parse(input);
+            setOutput(JSON.stringify(obj, null, 4));
+            setMessage("JSON formateado correctamente.");
+            setAlertVariant("success");
+        } catch (error) {
+            setOutput("");
+            setMessage(`Error: JSON inválido -> ${error.message}`);
+            setAlertVariant("danger");
+        }
     };
 
     function handleMinify() {
@@ -23,11 +32,13 @@ export default function JSONFormatter() {
     };
 
     function handleValidate() {
-    
+
     };
 
     function handleClear() {
-
+        setInput("");
+        setOutput("");
+        setMessage("");
     };
 
     const handleCopy = () => navigator.clipboard.writeText(output);
