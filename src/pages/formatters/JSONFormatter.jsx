@@ -41,7 +41,14 @@ export default function JSONFormatter() {
     };
 
     function handleValidate() {
-
+        try {
+            JSON.parse(input);
+            setMessage("JSON válido.");
+            setAlertVariant("success");
+        } catch (error) {
+            setMessage(`Error: JSON inválido -> ${error.message}`);
+            setAlertVariant("danger");
+        }
     };
 
     function handleClear() {
