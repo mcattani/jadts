@@ -20,6 +20,7 @@ import HMACMod from './pages/crypto/HMACMod';
 import AESMod from './pages/crypto/AESMod';
 import JWTMod from './pages/crypto/JWTMod';
 import JSONFormatter from './pages/formatters/JSONFormatter';
+import BcryptMod from './pages/crypto/BcryptMod';
 
 function App() {
   useEffect(() => {
@@ -45,6 +46,7 @@ function App() {
           <Route path='/aesmod' element={<AESMod/>}/>
           <Route path='/jwtmod' element={<JWTMod/>}/>
           <Route path='/jsonformatter' element={<JSONFormatter/>}/>
+          <Route path='/bcryptmod' element={<BcryptMod/>}/>
           {/*Ruta no existente*/}
           <Route path='*' element={<NotFound/>}/>
         </Routes>

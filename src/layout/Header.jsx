@@ -32,8 +32,9 @@ export default function NavScroll({ searchTerm, setSearchTerm }) {
             </NavDropdown>
             <NavDropdown title="Crypto" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/hmacmod">HMAC</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/jwtmod">JWT</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/aesmod">AES</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/jwtmod">JWT</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/bcryptmod">Bcrypt</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Formatters" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/jsonformatter">JSON</NavDropdown.Item>
