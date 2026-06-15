@@ -2,7 +2,8 @@ import {
     FaKey, FaQrcode, FaFont,
     FaHashtag, FaExchangeAlt,
     FaFingerprint, FaShieldAlt,
-    FaLock, FaIdCard, FaFileCode
+    FaLock, FaIdCard, FaFileCode,
+    FaUserLock 
 } from "react-icons/fa";
 
 export const tools = [
@@ -75,5 +76,12 @@ export const tools = [
         icon: FaFileCode,
         category: "Formatters",
         description: "Formatea, valida y comprime JSON"
+    },
+    {
+        name: "Bcrypt",
+        path: "/bcryptmod",
+        icon: FaUserLock,
+        category: "Crypto",
+        description: "Genera y verifica hashes bcrypt"
     }
 ]
