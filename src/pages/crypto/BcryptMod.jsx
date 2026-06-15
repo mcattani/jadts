@@ -12,18 +12,27 @@ export default function BcryptMod() {
     const [verifyHash, setVerifyHash] = useState("");
     const [verifyResult, setVerifyResult] = useState(null);
 
-
     async function handleGenerate() {
-
+        if (!password) return;
+        try {
+            const generate_hash = await bcrypt.hash(password, rounds);
+            setHash(generate_hash);
+        } catch (error) {
+            console.log(error);
+        }
     }
+
+    function handleClearHash() {
+        setPassword("");
+        setHash("");
+    }
+
 
     function handleCopy() {
 
     }
 
-    function handleClearHash() {
-
-    }
+    
 
     function handleSwap() {
 
@@ -65,6 +74,9 @@ export default function BcryptMod() {
                         <label className="form-label">
                             Factor de costo/trabajo
                         </label>
+                        <div className="form-text">
+                            Valores altos aumentan la seguridad pero requieren más tiempo de procesamiento.
+                        </div>
 
                         <select
                             className="form-select"
@@ -72,7 +84,7 @@ export default function BcryptMod() {
                             onChange={(e) => setRounds(Number(e.target.value))}
                         >
                             {Array.from(
-                                { length: 28 },
+                                { length: 13 },
                                 (_, i) => i + 4
                             ).map((round) => (
                                 <option
