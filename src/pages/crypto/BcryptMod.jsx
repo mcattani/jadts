@@ -126,7 +126,7 @@ export default function BcryptMod() {
                     </div>
 
                     {/* Output */}
-                    <div className="mb-3">
+                    <div className="mb-2">
                         <label className="form-label">
                             Salida Hash
                         </label>
