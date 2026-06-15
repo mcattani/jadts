@@ -18,7 +18,7 @@ import Base64Mod from './pages/encoders/Base64Mod';
 import HashGenMod from './pages/encoders/HashGenMod';
 import HMACMod from './pages/crypto/HMACMod';
 import AESMod from './pages/crypto/AESMod';
-import JWTMod from './pages/encoders/JWTMod';
+import JWTMod from './pages/crypto/JWTMod';
 import JSONFormatter from './pages/formatters/JSONFormatter';
 
 function App() {
