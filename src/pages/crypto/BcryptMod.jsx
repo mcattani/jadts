@@ -32,7 +32,7 @@ export default function BcryptMod() {
         if (!hash) return;
         navigator.clipboard.writeText(hash);
     }
-    
+
     function handleSwap() {
         if (!hash || !password) return;
         setVerifyPassword(password);
@@ -138,6 +138,14 @@ export default function BcryptMod() {
                             readOnly
                         />
                     </div>
+
+                    {hash && (
+                        <div className="form-text mb-2">
+                            Algoritmo: bcrypt · Versión: {hash.split("$")[1]}
+                            {" - "}
+                            Factor de costo: {hash.split("$")[2]}
+                        </div>
+                    )}
 
                     <div className="d-flex gap-2 mb-4">
                         <button
