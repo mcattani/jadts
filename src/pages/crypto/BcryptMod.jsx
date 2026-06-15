@@ -25,26 +25,36 @@ export default function BcryptMod() {
     function handleClearHash() {
         setPassword("");
         setHash("");
+        setRounds(12);
     }
-
 
     function handleCopy() {
-
+        if (!hash) return;
+        navigator.clipboard.writeText(hash);
     }
-
     
-
     function handleSwap() {
-
+        if (!hash || !password) return;
+        setVerifyPassword(password);
+        setVerifyHash(hash);
+        setVerifyResult(null);
     }
 
     async function handleVerify() {
-
+        if (!verifyPassword || !verifyHash) return;
+        try {
+            const result = await bcrypt.compare(verifyPassword, verifyHash);
+            setVerifyResult(result);
+        } catch (error) {
+            console.log(error);
+            setVerifyResult(false);
+        }
     }
 
-
     function handleClearVerify() {
-
+        setVerifyPassword("");
+        setVerifyHash("");
+        setVerifyResult(null);
     }
 
     return (
@@ -101,6 +111,7 @@ export default function BcryptMod() {
                         <button
                             className="btn btn-primary"
                             onClick={handleGenerate}
+                            disabled={!password}
                         >
                             Generar Hash
                         </button>
@@ -132,6 +143,7 @@ export default function BcryptMod() {
                         <button
                             className="btn btn-outline-secondary"
                             onClick={handleCopy}
+                            disabled={!hash}
                         >
                             Copiar
                         </button>
@@ -140,7 +152,7 @@ export default function BcryptMod() {
                             className="btn btn-outline-primary"
                             onClick={handleSwap}
                             title="Send to Verify"
-                            disabled={!hash}
+                            disabled={!hash || !password}
                         >
                             <FaArrowsRotate />
                         </button>
@@ -184,7 +196,7 @@ export default function BcryptMod() {
                     <button
                         className="btn btn-success me-2"
                         onClick={handleVerify}
-                        disabled={!verifyPassword}
+                        disabled={!verifyPassword || !verifyHash}
                     >
                         Verificar
                     </button>
