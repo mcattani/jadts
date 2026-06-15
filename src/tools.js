@@ -38,36 +38,42 @@ export const tools = [
         name: "Base64",
         path: "/base64mod",
         icon: FaExchangeAlt,
+        category: "Encoders",
         description: "Codificador / Decodificador Base64"
     },
     {
         name: "Hash Gen",
         path: "/hashgenmod",
         icon: FaFingerprint,
+        category: "Encoders",
         description: "Generador de Hashes"
     },
     {
         name: "HMAC Gen",
         path: "/hmacmod",
         icon: FaShieldAlt,
+        category: "Crypto",
         description: "Generador de HMACs"
     },
     {
         name: "AES",
         path: "/aesmod",
         icon: FaLock,
+        category: "Crypto",
         description: "Encripta / Desencripta AES"
     },
     {
         name: "JWT",
         path: "/jwtmod",
         icon: FaIdCard,
+        category: "Crypto",
         description: "Generador de JSON Web Tokens"
     },
     {
         name: "JSON Formatter",
         path: "/jsonformatter",
         icon: FaFileCode,
+        category: "Formatters",
         description: "Formatea, valida y comprime JSON"
     }
 ]
