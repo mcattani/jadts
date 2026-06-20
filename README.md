@@ -4,7 +4,7 @@ Colección de herramientas web para desarrolladores.
 
 El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https://thenerdyapprentice.blogspot.com/)
 
-![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![Version](https://img.shields.io/badge/Version-0.13.3-blue) ![License](https://img.shields.io/badge/License-GPL--3.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-16%2B-339933?logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-^19.2.0-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-^7.3.1-646CFF?logo=vite&logoColor=white)
+![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![Version](https://img.shields.io/badge/Version-0.15.0-blue) ![License](https://img.shields.io/badge/License-GPL--3.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-16%2B-339933?logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-^19.2.0-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-^8.0-646CFF?logo=vite&logoColor=white) ![Netlify](https://img.shields.io/badge/Hosted-Netlify-00C7B7?logo=netlify&logoColor=white)
 
 ## Descripción
 
@@ -13,9 +13,10 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 ## Características
 
 - **Interfaz moderna y oscura** - Diseño limpio con Bootstrap 5
-- **Rápido y responsivo** - Construido con Vite y React
+- **Rápido y responsivo** - Construido con Vite 8 y React 19
 - **Búsqueda integrada** - Encuentra herramientas fácilmente
 - **Totalmente responsivo** - Funciona en cualquier dispositivo
+- **Code Splitting** - Lazy loading de páginas para mejor performance
 - **Sin backend** - Todo funciona en el cliente
 
 ## Herramientas Disponibles
@@ -35,19 +36,21 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 - **HMAC Generator** - Generador de códigos de autenticación de mensajes
 - **AES** - Encriptación/Desencriptación AES
 - **JWT** - Generador y decodificador de JSON Web Tokens
+- **Bcrypt** - Generador y validador de hashes Bcrypt
 
 ## Stack Tecnológico
 
 ### Frontend
 - **React** ^19.2.0 - Librería de UI
 - **React Router** ^7.13.1 - Enrutamiento
-- **Vite** ^7.3.1 - Bundler y servidor de desarrollo
+- **Vite** ^8.0.16 - Bundler y servidor de desarrollo
 - **Bootstrap** ^5.3.8 - Framework CSS
 - **React Bootstrap** ^2.10.10 - Componentes Bootstrap para React
 
 ### Librerías Especializadas
 - **crypto-js** ^4.2.0 - Utilidades criptográficas
 - **jose** ^6.2.3 - JWT (JSON Web Tokens)
+- **bcryptjs** ^3.0.3 - Hashing Bcrypt
 - **uuid** ^14.0.0 - Generación de UUIDs
 - **react-qr-code** ^2.0.18 - Generador de códigos QR
 - **lorem-ipsum** ^2.0.8 - Generador de Lorem Ipsum
@@ -96,7 +99,7 @@ npm run build
 npm run preview
 ```
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 src/
