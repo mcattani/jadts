@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CryptoJS from "crypto-js";
+import SEO from "../../components/SEO";
 
 export default function HashGenMod() {
 
@@ -38,7 +39,13 @@ export default function HashGenMod() {
     const copyToClipboard = (str) => { navigator.clipboard.writeText(str); };
 
     return (
-        <div className="container mt-4">
+        <>
+            <SEO
+                title="Generador Hash"
+                description="Genera hashes MD5, SHA-1, SHA-256 y más."
+                keywords="hash, md5, sha256, checksum"
+            />
+            <div className="container mt-4">
             <h2 className="mb-4">Generador Hash</h2>
             
             {/* INPUT */}
@@ -193,6 +200,7 @@ export default function HashGenMod() {
                     </button>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 }

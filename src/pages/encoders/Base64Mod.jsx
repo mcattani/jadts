@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "../../components/SEO";
 
 export default function Base64Mod() {
 
@@ -96,7 +97,13 @@ export default function Base64Mod() {
     }
 
     return (
-        <div className="container mt-4">
+        <>
+            <SEO
+                title="Base64 Encoder / Decoder"
+                description="Codifica y decodifica cadenas en Base64."
+                keywords="base64, encoder, decoder, texto"
+            />
+            <div className="container mt-4">
             <h2>Base64 Encoder / Decoder</h2>
             
             {/* TABS */}
@@ -165,6 +172,7 @@ export default function Base64Mod() {
                     Copiar
                 </button>
             </div>
-        </div>
+            </div>
+        </>
     );
 }

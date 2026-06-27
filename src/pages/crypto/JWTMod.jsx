@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { decodeJwt, SignJWT, jwtVerify } from "jose";
 import { FaExchangeAlt } from 'react-icons/fa';
+import SEO from "../../components/SEO";
 
 export default function JWTMod() {
 
@@ -135,7 +136,13 @@ export default function JWTMod() {
     ];
 
     return (
-        <div className="container mt-4">
+        <>
+            <SEO
+                title="JWT Tool"
+                description="Decodifica, genera y verifica JWT de forma sencilla."
+                keywords="jwt, token, seguridad, auth"
+            />
+            <div className="container mt-4">
             <h3 className="mb-3">JWT Tool</h3>
 
             {/* Tabs */}
@@ -338,6 +345,7 @@ export default function JWTMod() {
                     {error && <div className="alert alert-danger">{error}</div>}
                 </div>
             )}
-        </div>
+            </div>
+        </>
     );
 }

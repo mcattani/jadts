@@ -1,11 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FaExclamationTriangle } from "react-icons/fa";
+import SEO from "../components/SEO";
 
 export default function NotFound() {
     const navigate = useNavigate();
 
     return (
-        <div className="container d-flex flex-column justify-content-center align-items-center text-center" style={{ minHeight: "70vh" }}>
+        <>
+            <SEO
+                title="Página no encontrada"
+                description="La ruta solicitada no existe en JADTS."
+                keywords="404, página no encontrada, error"
+            />
+            <div className="container d-flex flex-column justify-content-center align-items-center text-center" style={{ minHeight: "70vh" }}>
             <FaExclamationTriangle className="text-warning mb-4" size={80} />
             <h1 className="display-1 fw-bold">404</h1>
             <h2 className="mb-3">Página no encontrada</h2>
@@ -23,6 +30,7 @@ export default function NotFound() {
                     Volver atrás
                 </button>
             </div>
-        </div>
+            </div>
+        </>
     );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LoremIpsum } from "lorem-ipsum";
+import SEO from "../../components/SEO";
 
 export default function Lorem_Ipsum() {
 
@@ -40,7 +41,13 @@ export default function Lorem_Ipsum() {
   };
 
   return (
-    <div className="container py-4">
+    <>
+      <SEO
+        title="Generador de Lorem Ipsum"
+        description="Genera texto de relleno Lorem Ipsum con opciones de párrafos y HTML."
+        keywords="lorem ipsum, texto de relleno, generador"
+      />
+      <div className="container py-4">
       <div className="row justify-content-center">
         <div className="col-lg-8">
 
@@ -134,6 +141,7 @@ export default function Lorem_Ipsum() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

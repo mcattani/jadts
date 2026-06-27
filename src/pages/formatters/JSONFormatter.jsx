@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../../components/SEO";
 import {
     FaIndent,
     FaCompressAlt,
@@ -64,7 +65,13 @@ export default function JSONFormatter() {
     }
 
     return (
-        <div className="container mt-4">
+        <>
+            <SEO
+                title="JSON Formatter & Validator"
+                description="Formatea, valida y comprime JSON de forma sencilla."
+                keywords="json, formatter, validator, pretty print"
+            />
+            <div className="container mt-4">
             <h2 className="mb-4">JSON Formatter & Validator</h2>
 
             <div className="mb-3">
@@ -146,6 +153,7 @@ export default function JSONFormatter() {
                     readOnly
                 />
             </div>
-        </div>
+            </div>
+        </>
     );
 }

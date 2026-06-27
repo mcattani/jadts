@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CryptoJS from "crypto-js";
 import { FaArrowsRotate } from "react-icons/fa6";
+import SEO from "../../components/SEO";
 
 export default function AESMod() {
 
@@ -40,7 +41,13 @@ export default function AESMod() {
     const handleCopy = () => { navigator.clipboard.writeText(output); }
 
     return (
-        <div className="container mt-4">
+        <>
+            <SEO
+                title="AES Encrypt / Decrypt"
+                description="Herramienta online para encriptar y desencriptar mensajes con AES."
+                keywords="aes, encriptación, seguridad, crypto"
+            />
+            <div className="container mt-4">
             <div className="card shadow-sm">
                 <div className="card-body">
                     <h4 className="card-title mb-3">AES Encrypt / Decrypt</h4>
@@ -125,7 +132,8 @@ export default function AESMod() {
                     </button>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 
 }

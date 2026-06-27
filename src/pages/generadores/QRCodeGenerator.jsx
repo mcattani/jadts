@@ -1,5 +1,6 @@
 import { useState } from "react";
 import QRCode from "react-qr-code";
+import SEO from "../../components/SEO";
 
 export default function QRCodeGenerator() {
 
@@ -88,7 +89,13 @@ export default function QRCodeGenerator() {
     }
 
     return (
-        <div className="container mt-4">
+        <>
+            <SEO
+                title="Generador de códigos QR"
+                description="Genera códigos QR para texto, URL y WiFi."
+                keywords="qr, codigo qr, generador, wifi"
+            />
+            <div className="container mt-4">
             <h2 className="mb-4">Generador de códigos QR</h2>
             <div className="row">
                 {/* Controles */}
@@ -240,7 +247,8 @@ export default function QRCodeGenerator() {
                     </button>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 }
 

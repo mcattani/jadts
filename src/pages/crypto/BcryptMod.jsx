@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import bcrypt from 'bcryptjs';
 import { FaArrowsRotate } from "react-icons/fa6";
+import SEO from "../../components/SEO";
 
 export default function BcryptMod() {
 
@@ -58,7 +59,13 @@ export default function BcryptMod() {
     }
 
     return (
-        <div className="container mt-4">
+        <>
+            <SEO
+                title="Bcrypt Hash Generator"
+                description="Genera y verifica hashes bcrypt de forma rápida y segura."
+                keywords="bcrypt, hash, seguridad, password"
+            />
+            <div className="container mt-4">
             <div className="card shadow-sm">
                 <div className="card-body">
                     <h4 className="card-title mb-3">
@@ -231,6 +238,7 @@ export default function BcryptMod() {
 
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 }

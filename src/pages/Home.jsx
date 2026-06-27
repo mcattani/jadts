@@ -1,4 +1,5 @@
 // Componentes
+import SEO from "../components/SEO";
 import ToolCard from "../components/ToolCard";
 import { tools } from "../tools";
 
@@ -14,7 +15,13 @@ export default function Home({ searchTerm }) {
   );
 
   return (
-    <main className="container py-5">
+    <>
+      <SEO
+        title="Home"
+        description="Colección de herramientas online para desarrolladores y operaciones."
+        keywords="developer tools, herramientas online, crypto, jwt, aes"
+      />
+      <main className="container py-5">
       <div className="row justify-content-center text-center">
         <div className="col-lg-6">
           <div className="mb-4">
@@ -43,6 +50,7 @@ export default function Home({ searchTerm }) {
           </div>
         </div>
       </div>
-    </main >
+    </main>
+    </>
   );
 }

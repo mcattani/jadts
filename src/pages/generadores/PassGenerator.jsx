@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../../components/SEO";
 
 export default function PassGenerator() {
 
@@ -127,7 +128,13 @@ export default function PassGenerator() {
     }
 
     return (
-        <div className="container mt-4">
+        <>
+            <SEO
+                title="Generador de Passwords"
+                description="Crea contraseñas aleatorias con distintos niveles de seguridad."
+                keywords="password, contraseña, generador, seguridad"
+            />
+            <div className="container mt-4">
             <h2 className="mb-4">Generador de Passwords</h2>
 
             {/* OUTPUT */}
@@ -272,6 +279,7 @@ export default function PassGenerator() {
                 </div>
             </div>
 
-        </div>
+            </div>
+        </>
     );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../../components/SEO";
 import { v4 as uuidv4 } from 'uuid';
 import { v5 as uuidv5 } from 'uuid';
 import { validate } from 'uuid';
@@ -80,7 +81,13 @@ export default function UUID_Generator() {
     }
 
     return (
-        <div className="container py-4">
+        <>
+            <SEO
+                title="Generador de UUID"
+                description="Genera y valida UUID v4 y v5."
+                keywords="uuid, guid, generador, validación"
+            />
+            <div className="container py-4">
             <h2 className="mb-4">Generador de UUID</h2>
             <div className="row g-3">
 
@@ -201,6 +208,7 @@ export default function UUID_Generator() {
                     {result || "Resultado"}
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CryptoJS from "crypto-js";
 import { FaArrowsRotate } from "react-icons/fa6";
+import SEO from "../../components/SEO";
 
 export default function HMACMod() {
 
@@ -78,7 +79,13 @@ export default function HMACMod() {
     };
 
     return (
-        <div className="container mt-4">
+        <>
+            <SEO
+                title="Generador HMAC"
+                description="Genera y verifica códigos HMAC con algoritmos como SHA-256 y SHA-512."
+                keywords="hmac, autenticación, seguridad, hash"
+            />
+            <div className="container mt-4">
             <div className="card shadow-sm">
                 <div className="card-body">
                     <h4 className="card-title mb-3">
@@ -264,6 +271,7 @@ export default function HMACMod() {
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 }
