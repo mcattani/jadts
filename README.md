@@ -17,6 +17,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 - **Búsqueda integrada** - Encuentra herramientas fácilmente
 - **Totalmente responsivo** - Funciona en cualquier dispositivo
 - **Code Splitting** - Lazy loading de páginas para mejor performance
+- **SEO dinámico por página** - Títulos y metadatos gestionados con react-helmet-async
 - **Sin backend** - Todo funciona en el cliente
 
 ## Herramientas Disponibles
@@ -55,6 +56,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 - **react-qr-code** ^2.0.18 - Generador de códigos QR
 - **lorem-ipsum** ^2.0.8 - Generador de Lorem Ipsum
 - **react-icons** ^5.6.0 - Iconos
+- **react-helmet-async** ^3.0.0 - Gestión dinámica de SEO y metadatos
 
 ### Herramientas de Desarrollo
 - **ESLint** ^9.39.1 - Linter de JavaScript
