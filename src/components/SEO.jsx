@@ -4,7 +4,6 @@ export default function SEO({
   title,
   description,
   keywords,
-  canonical,
 }) {
   const siteName = 'JADTS';
   const pageTitle = title ? `${title} | ${siteName}` : siteName;
@@ -16,8 +15,6 @@ export default function SEO({
       <title>{pageTitle}</title>
       <meta name="description" content={pageDescription} />
       <meta name="keywords" content={pageKeywords} />
-
-      {canonical && <link rel="canonical" href={canonical} />}
 
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
