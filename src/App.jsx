@@ -1,6 +1,7 @@
 // Bibliotecas
 import { useEffect, useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { HelmetProvider } from 'react-helmet-async';
 
 // Layout 
 import Footer from './layout/Footer';
@@ -39,7 +40,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <>
+    <HelmetProvider>
       <Router>
         <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         {/* El Suspense envuelve las rutas para manejar la espera asíncrona */}
@@ -63,7 +64,7 @@ function App() {
         </Suspense>
         <Footer />
       </Router >
-    </>
+    </HelmetProvider>
   );
 }
 
