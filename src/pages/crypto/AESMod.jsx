@@ -66,7 +66,7 @@ export default function AESMod() {
 
                     {/* Clave */}
                     <div className="mb-3">
-                        <label className="form-label">Secret Key</label>
+                        <label className="form-label">Clave secreta</label>
                         <input
                             type="password"
                             className="form-control"

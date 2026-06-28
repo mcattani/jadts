@@ -138,7 +138,7 @@ export default function JWTMod() {
     return (
         <>
             <SEO
-                title="JWT Tool"
+                title="Herramienta JWT"
                 description="Decodifica, genera y verifica JWT de forma sencilla."
                 keywords="jwt, token, seguridad, auth"
             />
@@ -228,7 +228,7 @@ export default function JWTMod() {
                     <input
                         type="text"
                         className="form-control mb-2"
-                        placeholder="Key secreta (ej: mysecret)"
+                        placeholder="Clave secreta (ej: mysecret)"
                         value={secret}
                         onChange={(e) => setSecret(e.target.value)}
                     />
@@ -286,7 +286,7 @@ export default function JWTMod() {
                                     onClick={handleSwap}
                                     title="Enviar a Verificar"
                                 >
-                                    <FaExchangeAlt /> Swap to Verify
+                                    <FaExchangeAlt /> Enviar a Verificar
                                 </button>
                             </div>
                         </div>
@@ -300,7 +300,7 @@ export default function JWTMod() {
                     <textarea
                         className="form-control mb-2"
                         rows="3"
-                        placeholder="JWT token"
+                        placeholder="Token JWT"
                         value={token}
                         onChange={(e) => setToken(e.target.value)}
                     />
@@ -308,7 +308,7 @@ export default function JWTMod() {
                     <input
                         type="text"
                         className="form-control mb-3"
-                        placeholder="Key secreta (ej: mysecret)"
+                        placeholder="Clave secreta (ej: mysecret)"
                         value={secret}
                         onChange={(e) => setSecret(e.target.value)}
                     />

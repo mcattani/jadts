@@ -61,7 +61,7 @@ export default function BcryptMod() {
     return (
         <>
             <SEO
-                title="Bcrypt Hash Generator"
+                title="Generador Bcrypt Hash"
                 description="Genera y verifica hashes bcrypt de forma rápida y segura."
                 keywords="bcrypt, hash, seguridad, password"
             />
@@ -69,7 +69,7 @@ export default function BcryptMod() {
             <div className="card shadow-sm">
                 <div className="card-body">
                     <h4 className="card-title mb-3">
-                        Bcrypt Hash Generator
+                        Generador Bcrypt Hash
                     </h4>
 
                     {/* Password */}
@@ -166,7 +166,7 @@ export default function BcryptMod() {
                         <button
                             className="btn btn-outline-primary"
                             onClick={handleSwap}
-                            title="Send to Verify"
+                            title="Enviar a Verificar"
                             disabled={!hash || !password}
                         >
                             <FaArrowsRotate />

@@ -56,7 +56,7 @@ export default function HashGenMod() {
                     className="form-control"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    placeholder="Ingrese el texto aquí"
+                    placeholder="Ingrese el texto aquí..."
                     rows={4}
                 />
             </div>

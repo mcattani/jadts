@@ -129,15 +129,15 @@ export default function Base64Mod() {
             {/* INPUT */}
             <div className="mb-3">
                 <label className="form-label">
-                    {mode === "encode" ? "Input" : "Input Base64"}
+                    {mode === "encode" ? "Entrada" : "Entrada Base64"}
                 </label>
                 <textarea
                     className="form-control"
                     rows="4"
                     placeholder={
                         mode === "encode"
-                            ? "String..."
-                            : "Base64 string..."
+                            ? "Texto..."
+                            : "Texto en Base64..."
                     }
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
@@ -153,7 +153,7 @@ export default function Base64Mod() {
 
             {/* OUTPUT */}
             <div className="mb-3">
-                <label className="form-label">Output</label>
+                <label className="form-label">Salida</label>
                 <textarea
                     className="form-control"
                     rows="4"

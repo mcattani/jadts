@@ -75,7 +75,7 @@ export default function JSONFormatter() {
             <h2 className="mb-4">JSON Formatter & Validator</h2>
 
             <div className="mb-3">
-                <label className="form-label">JSON Input</label>
+                <label className="form-label">Entrada JSON</label>
 
                 <textarea
                     className="form-control"
@@ -93,7 +93,7 @@ export default function JSONFormatter() {
                     disabled={!input.trim()}
                 >
                     <FaIndent className="me-2" />
-                    Format
+                    Formatear
                 </button>
 
                 <button
@@ -111,7 +111,7 @@ export default function JSONFormatter() {
                     disabled={!input.trim()}
                 >
                     <FaCheckCircle className="me-2" />
-                    Validate
+                    Validar
                 </button>
 
                 <button
@@ -120,7 +120,7 @@ export default function JSONFormatter() {
                     disabled={!input.trim() && !output}
                 >
                     <FaTrash className="me-2" />
-                    Clear
+                    Limpiar
                 </button>
             </div>
 
@@ -133,7 +133,7 @@ export default function JSONFormatter() {
             <div className="mb-3">
                 <div className="d-flex justify-content-between align-items-center mb-2">
                     <label className="form-label mb-0">
-                        Output
+                        Salida
                     </label>
 
                     <button
@@ -142,7 +142,7 @@ export default function JSONFormatter() {
                         disabled={!output}
                     >
                         <FaCopy className="me-2" />
-                        Copy
+                        Copiar
                     </button>
                 </div>
 

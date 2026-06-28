@@ -97,7 +97,7 @@ export default function Lorem_Ipsum() {
                     onChange={(e) => setHtmlParagraphs(e.target.checked)}
                   />
                   <label className="form-check-label" htmlFor="htmlParagraphs">
-                    Párrafos HTML
+                    Párrafos en formato HTML
                   </label>
                 </div>
                 <div className="mt-4">
@@ -115,7 +115,7 @@ export default function Lorem_Ipsum() {
           {/* Resultado */}
           <div className="card shadow-sm mt-4">
             <div className="card-header d-flex justify-content-between align-items-center">
-              <h5 className="mb-0">Resultado</h5>
+              <h5 className="mb-0">Salida</h5>
               <button
                 className="btn btn-outline-secondary btn-sm"
                 type="button"
@@ -135,7 +135,7 @@ export default function Lorem_Ipsum() {
                   whiteSpace: "pre-line"
                 }}
               >
-                {result || "Aquí aparecerá el texto generado"}
+                {result || "Texto generado..."}
               </div>
             </div>
           </div>
