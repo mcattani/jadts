@@ -24,7 +24,7 @@ export default function Base64Mod() {
             // Decode
             if (!validateBase64(input)) {
                 setOutput("");
-                setError("Error: No es una string válida.");
+                setError("Error: No es una cadena de texto válida.");
                 return;
             }
 
@@ -33,7 +33,7 @@ export default function Base64Mod() {
 
         } catch {
             setOutput("");
-            setError("Error: No es una string válida.");
+            setError("Error: No es una cadena de texto válida.");
         }
 
     }, [input, mode]);
@@ -99,12 +99,12 @@ export default function Base64Mod() {
     return (
         <>
             <SEO
-                title="Base64 Encoder / Decoder"
+                title="Base64 Codificador / Decodificador"
                 description="Codifica y decodifica cadenas en Base64."
                 keywords="base64, encoder, decoder, texto"
             />
             <div className="container mt-4">
-            <h2>Base64 Encoder / Decoder</h2>
+            <h2>Base64 Codificador / Decodificador</h2>
             
             {/* TABS */}
             <ul className="nav nav-tabs mb-3 mt-4">
@@ -113,7 +113,7 @@ export default function Base64Mod() {
                         className={`nav-link ${mode === "encode" ? "active" : ""}`}
                         onClick={() => handleModeChange("encode")}
                     >
-                        Encode
+                        Codificar
                     </button>
                 </li>
                 <li className="nav-item">
@@ -121,7 +121,7 @@ export default function Base64Mod() {
                         className={`nav-link ${mode === "decode" ? "active" : ""}`}
                         onClick={() => handleModeChange("decode")}
                     >
-                        Decode
+                        Decodificar
                     </button>
                 </li>
             </ul>

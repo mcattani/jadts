@@ -27,12 +27,12 @@ export default function UUID_Generator() {
         } else if (version === "v5") {
             // Validar Name
             if (!name.trim()) {
-                setOutput("Error: 'Name' se requiere para generar UUID v5.");
+                setOutput("Error: 'Nombre' se requiere para generar UUID v5.");
                 return;
             }
             // Validar namespace custom
             if (namespace === "CUSTOM" && !customName.trim()) {
-                setOutput("Error: 'Custom namespace UUID' se requiere para generar esta versión de UUID v5.");
+                setOutput("Error: 'Namespace UUID personalizado' se requiere para generar esta versión de UUID v5.");
                 return;
             }
 
@@ -46,7 +46,7 @@ export default function UUID_Generator() {
                 case "CUSTOM":
                     // Validar que el UUID custom sea válido
                     if (!validate(customName)) {
-                        setOutput("Error: Custom namespace debe ser un UUID válido.");
+                        setOutput("Error: Namespace personalizado debe ser un UUID válido.");
                         return;
                     }
                     setOutput(uuidv5(name, customName));
@@ -125,13 +125,13 @@ export default function UUID_Generator() {
                         disabled={version === "v4"}>
                         <option value="DNS">DNS</option>
                         <option value="URL">URL</option>
-                        <option value="CUSTOM">Custom</option>
+                        <option value="CUSTOM">Personalizado</option>
                     </select>
                 </div>
 
                 {/* Name */}
                 <div className="col-md-3">
-                    <label className="form-label">Name</label>
+                    <label className="form-label">Nombre</label>
                     <input
                         type="text"
                         className="form-control"
@@ -144,7 +144,7 @@ export default function UUID_Generator() {
 
                 {/* Custom Namespace */}
                 <div className="col-md-6">
-                    <label className="form-label">Custom Namespace UUID</label>
+                    <label className="form-label">Namespace UUID Personalizado</label>
                     <input
                         type="text"
                         className="form-control"
@@ -165,7 +165,7 @@ export default function UUID_Generator() {
                     Copiar
                 </button>
                 <button className="btn btn-secondary" onClick={handleClear}>
-                    Clear
+                    Limpiar
                 </button>
             </div>
 

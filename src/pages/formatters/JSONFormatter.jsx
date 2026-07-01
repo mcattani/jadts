@@ -67,15 +67,15 @@ export default function JSONFormatter() {
     return (
         <>
             <SEO
-                title="JSON Formatter & Validator"
+                title="Herramientas JSON"
                 description="Formatea, valida y comprime JSON de forma sencilla."
                 keywords="json, formatter, validator, pretty print"
             />
             <div className="container mt-4">
-            <h2 className="mb-4">JSON Formatter & Validator</h2>
+            <h2 className="mb-4">Herramientas JSON</h2>
 
             <div className="mb-3">
-                <label className="form-label">Entrada JSON</label>
+                <label className="form-label">Entrada</label>
 
                 <textarea
                     className="form-control"
@@ -102,7 +102,7 @@ export default function JSONFormatter() {
                     disabled={!input.trim()}
                 >
                     <FaCompressAlt className="me-2" />
-                    Minify
+                    Minificar
                 </button>
 
                 <button

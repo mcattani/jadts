@@ -43,18 +43,18 @@ export default function AESMod() {
     return (
         <>
             <SEO
-                title="AES Encrypt / Decrypt"
+                title="AES Encriptador / Desencriptador"
                 description="Herramienta online para encriptar y desencriptar mensajes con AES."
                 keywords="aes, encriptación, seguridad, crypto"
             />
             <div className="container mt-4">
             <div className="card shadow-sm">
                 <div className="card-body">
-                    <h4 className="card-title mb-3">AES Encrypt / Decrypt</h4>
+                    <h4 className="card-title mb-3">AES Encriptador / Desencriptador</h4>
 
                     {/* Input texto */}
                     <div className="mb-3">
-                        <label className="form-label">Input</label>
+                        <label className="form-label">Entrada</label>
                         <textarea
                             className="form-control"
                             rows="3"
@@ -113,7 +113,7 @@ export default function AESMod() {
 
                     {/* Output */}
                     <div className="mb-3">
-                        <label className="form-label">Output</label>
+                        <label className="form-label">Salida</label>
                         <textarea
                             className="form-control"
                             rows="3"

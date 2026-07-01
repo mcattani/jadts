@@ -71,7 +71,7 @@ export const tools = [
         description: "Generador de JSON Web Tokens"
     },
     {
-        name: "JSON Formatter",
+        name: "Herramientas JSON",
         path: "/jsonformatter",
         icon: FaFileCode,
         category: "Formatters",
