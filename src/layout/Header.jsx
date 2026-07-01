@@ -26,7 +26,7 @@ export default function NavScroll({ searchTerm, setSearchTerm }) {
               <NavDropdown.Item as={Link} to="/passgenerator">Password </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/qrcodegenerator">QR Code</NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Encoders" id="navbarScrollingDropdown">
+            <NavDropdown title="Codificadores" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/base64mod">Base64</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/hashgenmod">Hash Gen</NavDropdown.Item>
             </NavDropdown>
@@ -36,7 +36,7 @@ export default function NavScroll({ searchTerm, setSearchTerm }) {
               <NavDropdown.Item as={Link} to="/jwtmod">JWT</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/bcryptmod">Bcrypt</NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Formatters" id="navbarScrollingDropdown">
+            <NavDropdown title="Formateadores" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/jsonformatter">JSON</NavDropdown.Item>
             </NavDropdown>
           </Nav>
