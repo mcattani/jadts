@@ -26,12 +26,12 @@ export default function UUID_Generator() {
             }
             setOutput(uuidv4Array.join("\n"));
         } else if (version === "v5") {
-            // Validar Name
+            // Validar Nombre
             if (!name.trim()) {
                 setOutput("Error: 'Nombre' se requiere para generar UUID v5.");
                 return;
             }
-            // Validar namespace custom
+            // Validar Namespace personalizado
             if (namespace === "CUSTOM" && !customName.trim()) {
                 setOutput("Error: 'Namespace UUID personalizado' se requiere para generar esta versión de UUID v5.");
                 return;
@@ -82,7 +82,11 @@ export default function UUID_Generator() {
     }
 
     function handleSendToValidator() {
-
+        if (!output) return;
+        // Si hay varios UUIDs, usamos el primero
+        const uuid = output.split("\n")[0];
+        setUUIDtoValidate(uuid);
+      
     }
 
     return (
@@ -214,7 +218,7 @@ export default function UUID_Generator() {
                     <div className="col-md-3">
                         <button className="btn btn-warning w-100"
                             onClick={handleValidateUUID}>
-                            Validate
+                            Validar
                         </button>
                     </div>
                 </div>
