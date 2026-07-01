@@ -60,6 +60,8 @@ export default function UUID_Generator() {
         setOutput("");
         setName("");
         setCustomName("");
+        setUUIDtoValidate("");
+        setResult("");
     }
 
     function handleCopy() {
@@ -86,7 +88,6 @@ export default function UUID_Generator() {
         // Si hay varios UUIDs, usamos el primero
         const uuid = output.split("\n")[0];
         setUUIDtoValidate(uuid);
-      
     }
 
     return (
