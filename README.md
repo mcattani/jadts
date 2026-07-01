@@ -4,7 +4,7 @@ Colección de herramientas web para desarrolladores.
 
 El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https://thenerdyapprentice.blogspot.com/)
 
-![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![Version](https://img.shields.io/badge/Version-0.16.1-blue) ![License](https://img.shields.io/badge/License-GPL--3.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-16%2B-339933?logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-^19.2.0-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-^8.0-646CFF?logo=vite&logoColor=white) ![Netlify](https://img.shields.io/badge/Hosted-Netlify-00C7B7?logo=netlify&logoColor=white)
+![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![Version](https://img.shields.io/badge/Version-0.16.2-blue) ![License](https://img.shields.io/badge/License-GPL--3.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-16%2B-339933?logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-^19.2.0-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-^8.0-646CFF?logo=vite&logoColor=white) ![Netlify](https://img.shields.io/badge/Hosted-Netlify-00C7B7?logo=netlify&logoColor=white)
 
 ## Descripción
 
