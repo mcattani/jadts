@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { v5 as uuidv5 } from 'uuid';
 import { validate } from 'uuid';
 import { version as uuidVersion } from 'uuid';
+import { FaExchangeAlt } from "react-icons/fa";
 
 export default function UUID_Generator() {
 
@@ -80,6 +81,10 @@ export default function UUID_Generator() {
         }
     }
 
+    function handleSendToValidator() {
+
+    }
+
     return (
         <>
             <SEO
@@ -88,126 +93,138 @@ export default function UUID_Generator() {
                 keywords="uuid, guid, generador, validación"
             />
             <div className="container py-4">
-            <h2 className="mb-4">Generador de UUID</h2>
-            <div className="row g-3">
+                <h2 className="mb-4">Generador de UUID</h2>
+                <div className="row g-3">
 
-                {/* Version */}
-                <div className="col-md-3">
-                    <label className="form-label">Versión</label>
-                    <select className="form-select"
-                        value={version}
-                        onChange={(e) => setVersion(e.target.value)}>
-                        <option value="v4">UUID v4 (Random)</option>
-                        <option value="v5">UUID v5 (Namespace)</option>
-                    </select>
+                    {/* Version */}
+                    <div className="col-md-3">
+                        <label className="form-label">Versión</label>
+                        <select className="form-select"
+                            value={version}
+                            onChange={(e) => setVersion(e.target.value)}>
+                            <option value="v4">UUID v4 (Random)</option>
+                            <option value="v5">UUID v5 (Namespace)</option>
+                        </select>
+                    </div>
+
+                    {/* Cantidad */}
+                    <div className="col-md-3">
+                        <label className="form-label">Cantidad</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            min="1"
+                            max="100"
+                            value={Number(amount)}
+                            onChange={(e) => setAmount(Number(e.target.value))}
+                            disabled={version === "v5"}
+                        />
+                    </div>
+
+                    {/* Namespace */}
+                    <div className="col-md-3">
+                        <label className="form-label">Namespace</label>
+                        <select className="form-select"
+                            value={namespace}
+                            onChange={(e) => setNamespace(e.target.value)}
+                            disabled={version === "v4"}>
+                            <option value="DNS">DNS</option>
+                            <option value="URL">URL</option>
+                            <option value="CUSTOM">Personalizado</option>
+                        </select>
+                    </div>
+
+                    {/* Name */}
+                    <div className="col-md-3">
+                        <label className="form-label">Nombre</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="example.com"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            disabled={version === "v4"}
+                        />
+                    </div>
+
+                    {/* Custom Namespace */}
+                    <div className="col-md-6">
+                        <label className="form-label">Namespace UUID Personalizado</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="namespace UUID"
+                            value={customName}
+                            onChange={(e) => setCustomName(e.target.value)}
+                            disabled={version === "v4" || namespace !== "CUSTOM"}
+                        />
+                    </div>
                 </div>
 
-                {/* Amount */}
-                <div className="col-md-3">
-                    <label className="form-label">Cantidad</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        min="1"
-                        max="100"
-                        value={Number(amount)}
-                        onChange={(e) => setAmount(Number(e.target.value))}
-                        disabled={version === "v5"}
-                    />
-                </div>
-
-                {/* Namespace */}
-                <div className="col-md-3">
-                    <label className="form-label">Namespace</label>
-                    <select className="form-select"
-                        value={namespace}
-                        onChange={(e) => setNamespace(e.target.value)}
-                        disabled={version === "v4"}>
-                        <option value="DNS">DNS</option>
-                        <option value="URL">URL</option>
-                        <option value="CUSTOM">Personalizado</option>
-                    </select>
-                </div>
-
-                {/* Name */}
-                <div className="col-md-3">
-                    <label className="form-label">Nombre</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="example.com"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        disabled={version === "v4"}
-                    />
-                </div>
-
-                {/* Custom Namespace */}
-                <div className="col-md-6">
-                    <label className="form-label">Namespace UUID Personalizado</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="namespace UUID"
-                        value={customName}
-                        onChange={(e) => setCustomName(e.target.value)}
-                        disabled={version === "v4" || namespace !== "CUSTOM"}
-                    />
-                </div>
-            </div>
-
-            {/* Buttons */}
-            <div className="mt-4 d-flex gap-2">
-                <button className="btn btn-primary" onClick={handleGenerate}>
-                    Generar
-                </button>
-                <button className="btn btn-success" onClick={handleCopy}>
-                    Copiar
-                </button>
-                <button className="btn btn-secondary" onClick={handleClear}>
-                    Limpiar
-                </button>
-            </div>
-
-            {/* Output */}
-            <div className="mt-4">
-                <label className="form-label">Salida</label>
-                <textarea
-                    className="form-control"
-                    rows="8"
-                    value={output}
-                    readOnly
-                />
-            </div>
-            <hr className="my-5" />
-
-            {/* UUID Validation */}
-            <h4 className="mb-3">Validación UUID</h4>
-            <div className="row g-3 align-items-end">
-                <div className="col-md-9">
-                    <label className="form-label">UUID</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="UUID a validar"
-                        value={UUIDtoValidate}
-                        onChange={(e) => setUUIDtoValidate(e.target.value)}
-                    />
-                </div>
-                <div className="col-md-3">
-                    <button className="btn btn-warning w-100"
-                        onClick={handleValidateUUID}>
-                        Validate
+                {/* Botones */}
+                <div className="mt-4 d-flex gap-2">
+                    <button className="btn btn-primary" onClick={handleGenerate}>
+                        Generar
+                    </button>
+                    <button className="btn btn-success"
+                        onClick={handleCopy}
+                        disabled={!output}>
+                        Copiar
+                    </button>
+                    <button
+                        className="btn btn-outline-secondary"
+                        onClick={handleSendToValidator}
+                        disabled={!output}
+                        title="Enviar al validador"
+                    >
+                        <FaExchangeAlt />
+                    </button>
+                    <button className="btn btn-secondary"
+                        onClick={handleClear}
+                        disabled={!output}>
+                        Limpiar
                     </button>
                 </div>
-            </div>
 
-            {/* Validation Result */}
-            <div className="mt-3">
-                <div className="alert alert-info mb-0">
-                    {result || "Resultado"}
+                {/* Output */}
+                <div className="mt-4">
+                    <label className="form-label">Salida</label>
+                    <textarea
+                        className="form-control"
+                        rows="8"
+                        value={output}
+                        readOnly
+                    />
                 </div>
-            </div>
+                <hr className="my-5" />
+
+                {/* UUID Validation */}
+                <h4 className="mb-3">Validación UUID</h4>
+                <div className="row g-3 align-items-end">
+                    <div className="col-md-9">
+                        <label className="form-label">UUID</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="UUID a validar"
+                            value={UUIDtoValidate}
+                            onChange={(e) => setUUIDtoValidate(e.target.value)}
+                        />
+                    </div>
+                    <div className="col-md-3">
+                        <button className="btn btn-warning w-100"
+                            onClick={handleValidateUUID}>
+                            Validate
+                        </button>
+                    </div>
+                </div>
+
+                {/* Validation Result */}
+                <div className="mt-3">
+                    <div className="alert alert-info mb-0">
+                        {result || "Resultado"}
+                    </div>
+                </div>
             </div>
         </>
     );
