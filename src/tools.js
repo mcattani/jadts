@@ -46,7 +46,7 @@ export const tools = [
         name: "Hash Gen",
         path: "/hashgenmod",
         icon: FaFingerprint,
-        category: "Encoders",
+        category: "Crypto",
         description: "Generador de Hashes"
     },
     {

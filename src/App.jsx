@@ -15,7 +15,7 @@ const UUID_Generator = lazy(() => import('./pages/generadores/UUIDGenerator'));
 const PassGenerator = lazy(() => import('./pages/generadores/PassGenerator'))
 const QRCodeGenerator = lazy(() => import('./pages/generadores/QRCodeGenerator'));
 const Base64Mod = lazy(() => import('./pages/encoders/Base64Mod'));
-const HashGenMod = lazy(() => import('./pages/encoders/HashGenMod'));
+const HashGenMod = lazy(() => import('./pages/crypto/HashGenMod'));
 const HMACMod = lazy(() => import('./pages/crypto/HMACMod'));
 const MCipherMod = lazy(() => import('./pages/crypto/MCipherMod'));
 const JWTMod = lazy(() => import('./pages/crypto/JWTMod'));
