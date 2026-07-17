@@ -40,7 +40,7 @@ export const tools = [
         path: "/base64mod",
         icon: FaExchangeAlt,
         category: "Encoders",
-        description: "Codificador / Decodificador Base64"
+        description: "Codificador y Decodificador Base64"
     },
     {
         name: "Hash Gen",
@@ -57,11 +57,11 @@ export const tools = [
         description: "Generador de HMACs"
     },
     {
-        name: "AES",
-        path: "/aesmod",
+        name: "Cifrado Simétrico",
+        path: "/mciphermod",
         icon: FaLock,
         category: "Crypto",
-        description: "Encripta / Desencripta AES"
+        description: "Cifrado simétrico con varios algoritmoss"
     },
     {
         name: "JWT",
