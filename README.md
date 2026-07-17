@@ -4,7 +4,7 @@ Colección de herramientas web para desarrolladores.
 
 El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https://thenerdyapprentice.blogspot.com/)
 
-![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![Version](https://img.shields.io/badge/Version-0.16.2-blue) ![License](https://img.shields.io/badge/License-GPL--3.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-16%2B-339933?logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-^19.2.0-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-^8.0-646CFF?logo=vite&logoColor=white) ![Netlify](https://img.shields.io/badge/Hosted-Netlify-00C7B7?logo=netlify&logoColor=white)
+![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![License](https://img.shields.io/badge/License-GPL--3.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-^19.2.0-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-^8.0-646CFF?logo=vite&logoColor=white) ![Netlify](https://img.shields.io/badge/Hosted-Netlify-00C7B7?logo=netlify&logoColor=white)
 
 ## Descripción
 
@@ -31,11 +31,11 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 ### Formatters
 - **JSONFormatter** - Formateador y validador de JSON
 
-### Codificación y Encriptación
+### Criptografía y Codificación
 - **Base64** - Codificador/Decodificador Base64
-- **Hash Generator** - Generador de funciones hash (MD5, SHA-1, SHA-256, SHA-512)
+- **Hash Generator** - Generador de hashes (MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512 y SHA-3)
 - **HMAC Generator** - Generador de códigos de autenticación de mensajes
-- **AES** - Encriptación/Desencriptación AES
+- **Multi Cipher** - Encriptación/desencriptación con múltiples algoritmos (AES, TripleDES, DES, Rabbit, RC4 y RC4Drop)
 - **JWT** - Generador y decodificador de JSON Web Tokens
 - **Bcrypt** - Generador y validador de hashes Bcrypt
 
@@ -65,7 +65,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 ## Instalación
 
 ### Requisitos Previos
-- Node.js 16+ 
+- Node.js 18+ 
 - npm o yarn
 
 ### Pasos
