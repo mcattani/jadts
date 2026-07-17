@@ -17,7 +17,7 @@ const QRCodeGenerator = lazy(() => import('./pages/generadores/QRCodeGenerator')
 const Base64Mod = lazy(() => import('./pages/encoders/Base64Mod'));
 const HashGenMod = lazy(() => import('./pages/encoders/HashGenMod'));
 const HMACMod = lazy(() => import('./pages/crypto/HMACMod'));
-const AESMod = lazy(() => import('./pages/crypto/AESMod'));
+const MCipherMod = lazy(() => import('./pages/crypto/MCipherMod'));
 const JWTMod = lazy(() => import('./pages/crypto/JWTMod'));
 const JSONFormatter = lazy(() => import('./pages/formatters/JSONFormatter'));
 const BcryptMod = lazy(() => import('./pages/crypto/BcryptMod'));
@@ -54,7 +54,7 @@ function App() {
             <Route path='/base64mod' element={<Base64Mod />} />
             <Route path='/hashgenmod' element={<HashGenMod />} />
             <Route path='/hmacmod' element={<HMACMod />} />
-            <Route path='/aesmod' element={<AESMod />} />
+            <Route path='/mciphermod' element={<MCipherMod />} />
             <Route path='/jwtmod' element={<JWTMod />} />
             <Route path='/jsonformatter' element={<JSONFormatter />} />
             <Route path='/bcryptmod' element={<BcryptMod />} />
