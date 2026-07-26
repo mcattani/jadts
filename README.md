@@ -30,6 +30,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 
 ### Formatters
 - **JSONFormatter** - Formateador y validador de JSON
+- **SQLFormatter** - Formateador y minificador de consultas SQL
 
 ### Criptografía y Codificación
 - **Base64** - Codificador/Decodificador Base64
@@ -57,6 +58,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 - **lorem-ipsum** ^2.0.8 - Generador de Lorem Ipsum
 - **react-icons** ^5.6.0 - Iconos
 - **react-helmet-async** ^3.0.0 - Gestión dinámica de SEO y metadatos
+- **sql-formatter** ^15.8.2 - Formateador de consultas SQL
 
 ### Herramientas de Desarrollo
 - **ESLint** ^9.39.1 - Linter de JavaScript
