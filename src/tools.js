@@ -3,7 +3,7 @@ import {
     FaHashtag, FaExchangeAlt,
     FaFingerprint, FaShieldAlt,
     FaLock, FaIdCard, FaFileCode,
-    FaUserLock 
+    FaUserLock, FaDatabase
 } from "react-icons/fa";
 
 export const tools = [
@@ -83,5 +83,12 @@ export const tools = [
         icon: FaUserLock,
         category: "Crypto",
         description: "Genera y verifica hashes bcrypt"
+    },
+    {
+        name: "Herramientas SQL",
+        path: "/sqlformatter",
+        icon: FaDatabase,
+        category: "Formatters",
+        description: "Formatea y minifica la legibilidad de consultas SQL"
     }
 ]
