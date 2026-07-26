@@ -21,6 +21,7 @@ const MCipherMod = lazy(() => import('./pages/crypto/MCipherMod'));
 const JWTMod = lazy(() => import('./pages/crypto/JWTMod'));
 const JSONFormatter = lazy(() => import('./pages/formatters/JSONFormatter'));
 const BcryptMod = lazy(() => import('./pages/crypto/BcryptMod'));
+const SQLFormatter = lazy(() => import('./pages/formatters/SQLFormatter'));
 
 // Spinner simple para mostrar mientras se carga la página
 const PageLoader = () => (
@@ -58,6 +59,7 @@ function App() {
             <Route path='/jwtmod' element={<JWTMod />} />
             <Route path='/jsonformatter' element={<JSONFormatter />} />
             <Route path='/bcryptmod' element={<BcryptMod />} />
+            <Route path='/sqlformatter' element={<SQLFormatter />} />
             {/*Ruta no existente*/}
             <Route path='*' element={<NotFound />} />
           </Routes>

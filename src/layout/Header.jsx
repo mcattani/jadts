@@ -38,6 +38,7 @@ export default function NavScroll({ searchTerm, setSearchTerm }) {
             </NavDropdown>
             <NavDropdown title="Formateadores" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/jsonformatter">JSON</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/sqlformatter">SQL</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">
