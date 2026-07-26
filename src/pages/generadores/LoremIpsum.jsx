@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LoremIpsum } from "lorem-ipsum";
 import SEO from "../../components/SEO";
+import { FaCopy } from "react-icons/fa";
 
 export default function Lorem_Ipsum() {
 
@@ -117,11 +118,12 @@ export default function Lorem_Ipsum() {
             <div className="card-header d-flex justify-content-between align-items-center">
               <h5 className="mb-0">Salida</h5>
               <button
-                className="btn btn-outline-secondary btn-sm"
+                className="btn btn-outline-secondary btn-sm d-flex align-items-center justify-content-center"
                 type="button"
                 onClick={copyToClipboard}
                 disabled={!result}
               >
+                <FaCopy className="me-2" />
                 Copiar
               </button>
             </div>

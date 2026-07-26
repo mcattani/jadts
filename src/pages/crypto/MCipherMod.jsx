@@ -154,6 +154,7 @@ export default function MCipherMod() {
 
                             <button
                                 className="btn btn-secondary"
+                                disabled={!input || !key}
                                 onClick={handleClear}
                             >
                                 Limpiar

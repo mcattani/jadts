@@ -143,208 +143,210 @@ export default function JWTMod() {
                 keywords="jwt, token, seguridad, auth"
             />
             <div className="container mt-4">
-            <h3 className="mb-3">JWT Tool</h3>
+                <h3 className="mb-3">JWT Tool</h3>
 
-            {/* Tabs */}
-            <ul className="nav nav-tabs mb-3">
-                {tabs.map((tab) => (
-                    <li className="nav-item" key={tab.id}>
-                        <button
-                            className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
-                            onClick={() => {
-                                setActiveTab(tab.id);
-                                setError("");
-                                setOutput(null);
-                                setVerifyResult(null);
+                {/* Tabs */}
+                <ul className="nav nav-tabs mb-3">
+                    {tabs.map((tab) => (
+                        <li className="nav-item" key={tab.id}>
+                            <button
+                                className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
+                                onClick={() => {
+                                    setActiveTab(tab.id);
+                                    setError("");
+                                    setOutput(null);
+                                    setVerifyResult(null);
+                                }}
+                            >
+                                {tab.label}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* DECODE */}
+                {activeTab === "decode" && (
+                    <div>
+                        <textarea
+                            className="form-control mb-3"
+                            rows="3"
+                            placeholder="Pegar JWT acá..."
+                            value={token}
+                            onChange={(e) => setToken(e.target.value)}
+                        />
+
+                        <div className="d-flex gap-2 mb-3">
+                            <button className="btn btn-primary mb-3"
+                                disabled={!token}
+                                onClick={handleDecode}>
+                                Decodificar
+                            </button>
+
+                            <button
+                                className="btn btn-secondary mb-3 "
+                                onClick={handleClear}
+                                disabled={!token}
+                            >
+                                Limpiar
+                            </button>
+                        </div>
+
+                        {error && <div className="alert alert-danger">{error}</div>}
+
+                        {output?.header && (
+                            <div className="row">
+                                <div className="col-md-4">
+                                    <h6>Header</h6>
+                                    <pre className="bg-dark text-light p-2 rounded border border-secondary">{output.header}</pre>
+                                </div>
+                                <div className="col-md-4">
+                                    <h6>Payload</h6>
+                                    <pre className="bg-dark text-light p-2 rounded border border-secondary">{output.payload}</pre>
+                                </div>
+                                <div className="col-md-4">
+                                    <h6>Firma</h6>
+                                    <pre className="bg-dark text-light p-2 rounded border border-secondary">{output.signature}</pre>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {/* GENERATE */}
+                {activeTab === "generate" && (
+                    <div>
+                        <textarea
+                            className={`form-control mb-2 ${!isValidJson && payload ? 'is-invalid' : ''}`}
+                            rows="4"
+                            placeholder='Payload JSON (ej: {"user":"admin"})'
+                            value={payload}
+                            onChange={(e) => {
+                                setPayload(e.target.value);
+                                setIsValidJson(validateJson(e.target.value));
                             }}
+                        />
+                        {!isValidJson && payload && <div className="invalid-feedback">JSON inválido</div>}
+
+                        <input
+                            type="text"
+                            className="form-control mb-2"
+                            placeholder="Clave secreta (ej: mysecret)"
+                            value={secret}
+                            onChange={(e) => setSecret(e.target.value)}
+                        />
+
+                        <select
+                            className="form-select mb-3"
+                            value={expiration}
+                            onChange={(e) => setExpiration(e.target.value)}
                         >
-                            {tab.label}
-                        </button>
-                    </li>
-                ))}
-            </ul>
+                            <option value="15m">15 minutos</option>
+                            <option value="30m">30 minutos</option>
+                            <option value="1h">1 hora</option>
+                            <option value="12h">12 horas</option>
+                            <option value="1d">1 día</option>
+                            <option value="7d">7 días</option>
+                            <option value="30d">30 días</option>
+                        </select>
 
-            {/* DECODE */}
-            {activeTab === "decode" && (
-                <div>
-                    <textarea
-                        className="form-control mb-3"
-                        rows="3"
-                        placeholder="Pegar JWT acá..."
-                        value={token}
-                        onChange={(e) => setToken(e.target.value)}
-                    />
+                        <div className="d-flex gap-2 mb-3">
+                            <button className="btn btn-success mb-3" onClick={handleGenerate} disabled={!payload || !secret || !isValidJson}>
+                                Generar JWT
+                            </button>
 
-                    <div className="d-flex gap-2 mb-3">
-                        <button className="btn btn-primary mb-3" onClick={handleDecode}>
-                            Decodificar
-                        </button>
-
-                        <button
-                            className="btn btn-secondary mb-3 "
-                            onClick={handleClear}
-                            disabled={!token}
-                        >
-                            Limpiar
-                        </button>
-                    </div>
-
-                    {error && <div className="alert alert-danger">{error}</div>}
-
-                    {output?.header && (
-                        <div className="row">
-                            <div className="col-md-4">
-                                <h6>Header</h6>
-                                <pre className="bg-dark text-light p-2 rounded border border-secondary">{output.header}</pre>
-                            </div>
-                            <div className="col-md-4">
-                                <h6>Payload</h6>
-                                <pre className="bg-dark text-light p-2 rounded border border-secondary">{output.payload}</pre>
-                            </div>
-                            <div className="col-md-4">
-                                <h6>Firma</h6>
-                                <pre className="bg-dark text-light p-2 rounded border border-secondary">{output.signature}</pre>
-                            </div>
+                            <button
+                                className="btn btn-secondary mb-3 "
+                                onClick={handleClear}
+                                disabled={!payload && !secret}
+                            >
+                                Limpiar
+                            </button>
                         </div>
-                    )}
-                </div>
-            )}
 
-            {/* GENERATE */}
-            {activeTab === "generate" && (
-                <div>
-                    <textarea
-                        className={`form-control mb-2 ${!isValidJson && payload ? 'is-invalid' : ''}`}
-                        rows="4"
-                        placeholder='Payload JSON (ej: {"user":"admin"})'
-                        value={payload}
-                        onChange={(e) => {
-                            setPayload(e.target.value);
-                            setIsValidJson(validateJson(e.target.value));
-                        }}
-                    />
-                    {!isValidJson && payload && <div className="invalid-feedback">JSON inválido</div>}
+                        {error && <div className="alert alert-danger">{error}</div>}
 
-                    <input
-                        type="text"
-                        className="form-control mb-2"
-                        placeholder="Clave secreta (ej: mysecret)"
-                        value={secret}
-                        onChange={(e) => setSecret(e.target.value)}
-                    />
+                        {typeof output === "string" && (
+                            <div>
+                                <h6>Generated Token</h6>
+                                <textarea
+                                    className="form-control mb-2"
+                                    rows="3"
+                                    value={output}
+                                    readOnly
+                                />
 
-                    <select
-                        className="form-select mb-3"
-                        value={expiration}
-                        onChange={(e) => setExpiration(e.target.value)}
-                    >
-                        <option value="15m">15 minutos</option>
-                        <option value="30m">30 minutos</option>
-                        <option value="1h">1 hora</option>
-                        <option value="12h">12 horas</option>
-                        <option value="1d">1 día</option>
-                        <option value="7d">7 días</option>
-                        <option value="30d">30 días</option>
-                    </select>
+                                <div className="d-flex gap-2 mt-3">
+                                    <button
+                                        className="btn btn-outline-secondary"
+                                        onClick={copyToClipboard}
+                                    >
+                                        Copiar
+                                    </button>
 
-                    <div className="d-flex gap-2 mb-3">
-                        <button className="btn btn-success mb-3" onClick={handleGenerate} disabled={!payload || !secret || !isValidJson}>
-                            Generar JWT
-                        </button>
-
-                        <button
-                            className="btn btn-secondary mb-3 "
-                            onClick={handleClear}
-                            disabled={!payload && !secret}
-                        >
-                            Limpiar
-                        </button>
-                    </div>
-
-                    {error && <div className="alert alert-danger">{error}</div>}
-
-                    {typeof output === "string" && (
-                        <div>
-                            <h6>Generated Token</h6>
-                            <textarea
-                                className="form-control mb-2"
-                                rows="3"
-                                value={output}
-                                readOnly
-                            />
-
-                            <div className="d-flex gap-2">
-                                <button
-                                    className="btn btn-outline-secondary"
-                                    onClick={copyToClipboard}
-                                >
-                                    Copiar
-                                </button>
-
-                                <button
-                                    className="btn btn-info"
-                                    onClick={handleSwap}
-                                    title="Enviar a Verificar"
-                                >
-                                    <FaExchangeAlt /> Enviar a Verificar
-                                </button>
+                                    <button
+                                        className="btn btn-info d-flex align-items-center justify-content-center gap-1"
+                                        onClick={handleSwap}
+                                        title="Enviar a Verificar"
+                                    >
+                                        <FaExchangeAlt /> Enviar a Verificar
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    )}
-                </div>
-            )}
-
-            {/* VERIFY */}
-            {activeTab === "verify" && (
-                <div>
-                    <textarea
-                        className="form-control mb-2"
-                        rows="3"
-                        placeholder="Token JWT"
-                        value={token}
-                        onChange={(e) => setToken(e.target.value)}
-                    />
-
-                    <input
-                        type="text"
-                        className="form-control mb-3"
-                        placeholder="Clave secreta (ej: mysecret)"
-                        value={secret}
-                        onChange={(e) => setSecret(e.target.value)}
-                    />
-
-                    <div className="d-flex gap-2 mb-3">
-                        <button className="btn btn-warning mb-3" onClick={handleVerify}>
-                            Verificar
-                        </button>
-
-                        <button
-                            className="btn btn-secondary mb-3 "
-                            onClick={handleClear}
-                            disabled={!token || !secret}
-                        >
-                            Limpiar
-                        </button>
+                        )}
                     </div>
+                )}
 
-                    {verifyResult && (
-                        <div
-                            className={`alert ${verifyResult.valid ? "alert-success" : "alert-danger"
-                                }`}
-                        >
-                            {verifyResult.valid ? "JWT válido" : "JWT inválido"}
+                {/* VERIFY */}
+                {activeTab === "verify" && (
+                    <div>
+                        <textarea
+                            className="form-control mb-2"
+                            rows="3"
+                            placeholder="Token JWT"
+                            value={token}
+                            onChange={(e) => setToken(e.target.value)}
+                        />
+
+                        <input
+                            type="text"
+                            className="form-control mb-3"
+                            placeholder="Clave secreta (ej: mysecret)"
+                            value={secret}
+                            onChange={(e) => setSecret(e.target.value)}
+                        />
+
+                        <div className="d-flex gap-2 mb-3">
+                            <button className="btn btn-warning mb-3" onClick={handleVerify}>
+                                Verificar
+                            </button>
+
+                            <button
+                                className="btn btn-secondary mb-3 "
+                                onClick={handleClear}
+                                disabled={!token || !secret}
+                            >
+                                Limpiar
+                            </button>
                         </div>
-                    )}
 
-                    {verifyResult?.payload && (
-                        <pre className="bg-dark text-light p-2 rounded border border-secondary">
-                            {JSON.stringify(verifyResult.payload, null, 2)}
-                        </pre>
-                    )}
+                        {verifyResult && (
+                            <div
+                                className={`alert ${verifyResult.valid ? "alert-success" : "alert-danger"
+                                    }`}
+                            >
+                                {verifyResult.valid ? "JWT válido" : "JWT inválido"}
+                            </div>
+                        )}
 
-                    {error && <div className="alert alert-danger">{error}</div>}
-                </div>
-            )}
+                        {verifyResult?.payload && (
+                            <pre className="bg-dark text-light p-2 rounded border border-secondary">
+                                {JSON.stringify(verifyResult.payload, null, 2)}
+                            </pre>
+                        )}
+
+                        {error && <div className="alert alert-danger">{error}</div>}
+                    </div>
+                )}
             </div>
         </>
     );

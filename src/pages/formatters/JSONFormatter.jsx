@@ -88,7 +88,7 @@ export default function JSONFormatter() {
 
             <div className="d-flex flex-wrap gap-2 mb-3">
                 <button
-                    className="btn btn-primary"
+                    className="btn btn-primary d-flex align-items-center justify-content-center"
                     onClick={handleFormat}
                     disabled={!input.trim()}
                 >
@@ -97,7 +97,7 @@ export default function JSONFormatter() {
                 </button>
 
                 <button
-                    className="btn btn-secondary"
+                    className="btn btn-secondary d-flex align-items-center justify-content-center"
                     onClick={handleMinify}
                     disabled={!input.trim()}
                 >
@@ -106,7 +106,7 @@ export default function JSONFormatter() {
                 </button>
 
                 <button
-                    className="btn btn-success"
+                    className="btn btn-success d-flex align-items-center justify-content-center"
                     onClick={handleValidate}
                     disabled={!input.trim()}
                 >
@@ -115,7 +115,7 @@ export default function JSONFormatter() {
                 </button>
 
                 <button
-                    className="btn btn-outline-light"
+                    className="btn btn-outline-light d-flex align-items-center justify-content-center"
                     onClick={handleClear}
                     disabled={!input.trim() && !output}
                 >
@@ -137,7 +137,7 @@ export default function JSONFormatter() {
                     </label>
 
                     <button
-                        className="btn btn-info btn-sm"
+                        className="btn btn-info btn-sm d-flex align-items-center justify-content-center"
                         onClick={handleCopy}
                         disabled={!output}
                     >

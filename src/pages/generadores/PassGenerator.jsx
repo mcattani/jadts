@@ -150,6 +150,7 @@ export default function PassGenerator() {
                         />
                         <button
                             className="btn btn-outline-secondary"
+                            disabled={!password}
                             onClick={handleCopy}
                         >
                             Copiar

@@ -41,12 +41,12 @@ export default function HashGenMod() {
     return (
         <>
             <SEO
-                title="Generador Hash"
+                title="Generador de Hashes"
                 description="Genera hashes MD5, SHA-1, SHA-256 y más."
                 keywords="hash, md5, sha256, checksum"
             />
             <div className="container mt-4">
-            <h2 className="mb-4">Generador Hash</h2>
+            <h2 className="mb-4">Generador de Hashes</h2>
             
             {/* INPUT */}
             <div className="mb-4">

@@ -177,7 +177,7 @@ export default function UUID_Generator() {
                         Copiar
                     </button>
                     <button
-                        className="btn btn-outline-secondary"
+                        className="btn btn-outline-secondary d-flex align-items-center justify-content-center"
                         onClick={handleSendToValidator}
                         disabled={!output}
                         title="Enviar al validador"
@@ -218,6 +218,7 @@ export default function UUID_Generator() {
                     </div>
                     <div className="col-md-3">
                         <button className="btn btn-warning w-100"
+                            disabled={!UUIDtoValidate}
                             onClick={handleValidateUUID}>
                             Validar
                         </button>
