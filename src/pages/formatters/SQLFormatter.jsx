@@ -7,7 +7,7 @@ import {
     FaTrash
 } from "react-icons/fa";
 import { FaArrowsRotate } from "react-icons/fa6";
-
+import { format } from "sql-formatter";
 
 export default function SQLFormatter() {
 
@@ -17,23 +17,49 @@ export default function SQLFormatter() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
 
+    const formatterOptions = {
+        language,
+        keywordCase,
+        tabWidth: indentation === "tab" ? 4 : Number(indentation),
+        useTabs: indentation === "tab",
+    };
+
     function formatSQL() {
+        try {
+            setOutput(format(input, formatterOptions));
+        } catch (error) {
+            console.error(error);
+            setOutput(`Error al formatear la consulta.
+                \n• Verifica que la sintaxis sea correcta.
+                \n• Confirma que el dialecto seleccionado sea el adecuado.`);
+        }
     }
 
     function minifySQL() {
-
+        try {
+            setOutput(format(input, formatterOptions)
+                .replace(/\n+/g, " ")
+                .replace(/\s+/g, " ")
+                .trim());
+        } catch (error) {
+            console.error(error);
+            setOutput(`Error al minimizar la consulta.
+                \n• Verifica que la sintaxis sea correcta.
+                \n• Confirma que el dialecto seleccionado sea el adecuado.`);
+        };
     }
 
     function swapSQL() {
-
+        setInput(output);
+        setOutput(input);
     }
 
     function clearAll() {
-
+        setInput("");
+        setOutput("");
     }
 
-    function copyOutput() {
-    }
+    function copyOutput() { navigator.clipboard.writeText(output); }
 
     return (
         <>
@@ -125,7 +151,7 @@ export default function SQLFormatter() {
                                         Salida SQL
                                     </label>
                                     <button
-                                        className="btn btn-sm btn-outline-secondary"
+                                        className="btn btn-sm mt-1 btn-outline-secondary d-flex align-items-center justify-content-center"
                                         onClick={copyOutput}
                                         disabled={!output}
                                     >
@@ -143,7 +169,7 @@ export default function SQLFormatter() {
                         </div>
                         <div className="d-flex flex-wrap gap-2 mt-4">
                             <button
-                                className="btn btn-primary"
+                                className="btn btn-primary d-flex align-items-center justify-content-center"
                                 onClick={formatSQL}
                                 disabled={!input}
                             >
@@ -151,7 +177,7 @@ export default function SQLFormatter() {
                                 Formatear
                             </button>
                             <button
-                                className="btn btn-secondary"
+                                className="btn btn-secondary d-flex align-items-center justify-content-center"
                                 onClick={minifySQL}
                                 disabled={!input}
                             >
@@ -159,14 +185,14 @@ export default function SQLFormatter() {
                                 Minificar
                             </button>
                             <button
-                                className="btn btn-outline-secondary"
+                                className="btn btn-outline-secondary d-flex align-items-center justify-content-center"
                                 onClick={swapSQL}
                                 disabled={!input && !output}
                             >
                                 <FaArrowsRotate />
                             </button>
                             <button
-                                className="btn btn-outline-danger"
+                                className="btn btn-outline-danger d-flex align-items-center justify-content-center"
                                 onClick={clearAll}
                                 disabled={!input && !output}
                             >
