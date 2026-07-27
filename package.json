@@ -1,7 +1,7 @@
 {
   "name": "jadts",
   "private": true,
-  "version": "0.17.6",
+  "version": "0.17.7",
   "license": "GPL-3.0",
   "type": "module",
   "scripts": {
