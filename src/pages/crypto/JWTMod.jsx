@@ -53,7 +53,7 @@ export default function JWTMod() {
                 signature,
             });
 
-        } catch (err) {
+        } catch {
             setError("Token inválido o mal formado.");
             setOutput(null);
         }

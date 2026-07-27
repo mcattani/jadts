@@ -43,7 +43,7 @@ export default function PassGenerator() {
         };
     }
 
-    function calculateStrength(password, charsetSize) {
+    function calculateStrength(password) {
         // Algoritmo simple de fuerza: longitud + tipo de caracteres
         // Máximo 7 puntos
         let score = 0;
@@ -113,7 +113,7 @@ export default function PassGenerator() {
             return;
         }
         setPassword(newPassword.password);
-        calculateStrength(newPassword.password, newPassword.charsetSize);
+        calculateStrength(newPassword.password);
         setCombinations(calculateCombinations(newPassword.password.length, newPassword.charsetSize));
     }
 
