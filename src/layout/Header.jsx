@@ -28,6 +28,7 @@ export default function NavScroll({ searchTerm, setSearchTerm }) {
             </NavDropdown>
             <NavDropdown title="Codificadores" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/base64mod">Base64</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/urlmod">URL</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Crypto" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/hashgenmod">Generador Hashes</NavDropdown.Item>
