@@ -2,48 +2,56 @@ import { useState } from "react";
 import { FaLink, FaExchangeAlt, FaCopy, FaTrash } from "react-icons/fa";
 import SEO from "../../components/SEO";
 
-
 export default function URLMod() {
 
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
+    const [mode, setMode] = useState("component");
 
     function encodeURL() {
         try {
-            setOutput(encodeURI(input));
+            if (mode === "component") {
+                setOutput(encodeURIComponent(input));
+            } else {
+                setOutput(encodeURI(input));
+            }
         } catch (error) {
-            setOutput(`Error al codificar: ${error.message}`);
+            setOutput(`Error al codificar.\n${error.message}`);
         }
     }
 
     function decodeURL() {
         try {
-            setOutput(decodeURIComponent(input));
+            if (mode === "component") {
+                setOutput(decodeURIComponent(input));
+            } else {
+                setOutput(decodeURI(input));
+            }
         } catch (error) {
-            setOutput(`URL inválida\nError: ${error.message}`);
+            setOutput(`URL inválida.\n${error.message}`);
         }
     }
 
     function swapValues() {
         const temp = input;
         setInput(output);
-        setOutput(temp);    
+        setOutput(temp);
     }
 
     function copiarSalida() {
-        navigator.clipboard.writeText(output);    
+        navigator.clipboard.writeText(output);
     }
 
     function clearFields() {
         setInput("");
-        setOutput("");    
+        setOutput("");
     }
 
     return (
         <>
             <SEO
                 title="URL Codificador / Decodificador"
-                description="Codifica y decodifica URLs utilizando percent-encoding."
+                description="Codifica y decodifica URLs completas o componentes individuales utilizando percent-encoding."
                 keywords="url, percent-encoding, decodificador, codificador"
             />
 
@@ -55,8 +63,34 @@ export default function URLMod() {
                 </h2>
 
                 <p className="text-body-secondary">
-                    Codifica y decodifica URLs utilizando percent-encoding.
-                </p>
+                    Codifica URLs completas o parámetros individuales utilizando percent-encoding.</p>
+
+                <div className="mb-3">
+
+                    <label className="form-label">
+                        Modo
+                    </label>
+
+                    <select
+                        className="form-select"
+                        value={mode}
+                        onChange={(e) => setMode(e.target.value)}
+                    >
+                        <option value="component">
+                            Componente (encodeURIComponent)
+                        </option>
+
+                        <option value="url">
+                            URL completa (encodeURI)
+                        </option>
+                    </select>
+
+                    <div className="form-text">
+                        Use <strong>Componente</strong> para parámetros de consulta y
+                        <strong> URL completa</strong> para conservar la estructura de una URL.
+                    </div>
+
+                </div>
 
                 <div className="row g-3">
                     <div className="col-lg-6">
