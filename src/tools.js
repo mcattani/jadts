@@ -3,7 +3,7 @@ import {
     FaHashtag, FaExchangeAlt,
     FaFingerprint, FaShieldAlt,
     FaLock, FaIdCard, FaFileCode,
-    FaUserLock, FaDatabase
+    FaUserLock, FaDatabase, FaLink
 } from "react-icons/fa";
 
 export const tools = [
@@ -90,5 +90,12 @@ export const tools = [
         icon: FaDatabase,
         category: "Formatters",
         description: "Formatea y minifica la legibilidad de consultas SQL"
+    },
+    {
+        name: "URL",
+        path: "/urlmod",
+        icon: FaLink,
+        category: "Encoders",
+        description: "Codifique URLs completas o parámetros individuales"
     }
 ]
