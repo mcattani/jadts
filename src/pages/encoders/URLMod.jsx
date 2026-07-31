@@ -9,23 +9,34 @@ export default function URLMod() {
     const [output, setOutput] = useState("");
 
     function encodeURL() {
-    
+        try {
+            setOutput(encodeURI(input));
+        } catch (error) {
+            setOutput(`Error al codificar: ${error.message}`);
+        }
     }
 
     function decodeURL() {
-
+        try {
+            setOutput(decodeURIComponent(input));
+        } catch (error) {
+            setOutput(`URL inválida\nError: ${error.message}`);
+        }
     }
 
     function swapValues() {
-    
+        const temp = input;
+        setInput(output);
+        setOutput(temp);    
     }
 
     function copiarSalida() {
-    
+        navigator.clipboard.writeText(output);    
     }
 
     function clearFields() {
-    
+        setInput("");
+        setOutput("");    
     }
 
     return (
