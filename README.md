@@ -34,6 +34,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 
 ### Criptografía y Codificación
 - **Base64** - Codificador/Decodificador Base64
+- **URL** - Codifica y decodifica URLs y componentes mediante percent-encoding
 - **Hash Generator** - Generador de hashes (MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512 y SHA-3)
 - **HMAC Generator** - Generador de códigos de autenticación de mensajes
 - **Multi Cipher** - Encriptación/desencriptación con múltiples algoritmos (AES, TripleDES, DES, Rabbit, RC4 y RC4Drop)
