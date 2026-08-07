@@ -23,6 +23,7 @@ const JSONFormatter = lazy(() => import('./pages/formatters/JSONFormatter'));
 const BcryptMod = lazy(() => import('./pages/crypto/BcryptMod'));
 const SQLFormatter = lazy(() => import('./pages/formatters/SQLFormatter'));
 const URLMod = lazy(() => import('./pages/encoders/URLMod'));
+const BIP39Mod = lazy(() => import('./pages/generadores/BIP39Mod'));
 
 // Spinner simple para mostrar mientras se carga la página
 const PageLoader = () => (
@@ -62,6 +63,7 @@ function App() {
             <Route path='/bcryptmod' element={<BcryptMod />} />
             <Route path='/sqlformatter' element={<SQLFormatter />} />
             <Route path='/urlmod' element={<URLMod />} />
+            <Route path='/bip39mod' element={<BIP39Mod />} />
             {/*Ruta no existente*/}
             <Route path='*' element={<NotFound />} />
           </Routes>

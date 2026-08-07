@@ -25,6 +25,7 @@ export default function NavScroll({ searchTerm, setSearchTerm }) {
               <NavDropdown.Item as={Link} to="/uuidgenerator">UUID</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/passgenerator">Password </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/qrcodegenerator">QR Code</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/bip39mod">BIP-39</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Codificadores" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/base64mod">Base64</NavDropdown.Item>
