@@ -27,6 +27,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 - **UUID** - Generador de identificadores únicos universales
 - **Contraseñas** - Generador de contraseñas seguras
 - **Códigos QR** - Generador de códigos QR
+- **BIP-39** - Generador de frases mnemónicas compatibles con BIP-39
 
 ### Formatters
 - **JSONFormatter** - Formateador y validador de JSON
@@ -60,6 +61,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 - **react-icons** ^5.6.0 - Iconos
 - **react-helmet-async** ^3.0.0 - Gestión dinámica de SEO y metadatos
 - **sql-formatter** ^15.8.2 - Formateador de consultas SQL
+- **@scure/bip39** ^2.2.0 - Generador de frases mnemónicas compatibles con BIP-39
 
 ### Herramientas de Desarrollo
 - **ESLint** ^9.39.1 - Linter de JavaScript
