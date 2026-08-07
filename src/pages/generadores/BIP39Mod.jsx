@@ -1,7 +1,18 @@
 import { useState } from "react";
 import { FaCopy, FaTrash } from "react-icons/fa";
-import { generateMnemonic } from "@scure/bip39";
 import SEO from "../../components/SEO";
+import { generateMnemonic } from "@scure/bip39";
+import { wordlist as english } from '@scure/bip39/wordlists/english.js';
+import { wordlist as spanish } from '@scure/bip39/wordlists/spanish.js';
+
+// Mapa de tamaños de entropía para generar frases mnemónicas
+const entropyMap = {
+    12: 128,
+    15: 160,
+    18: 192,
+    21: 224,
+    24: 256,
+};
 
 export default function BIP39Mod() {
 
@@ -10,16 +21,15 @@ export default function BIP39Mod() {
     const [mnemonic, setMnemonic] = useState("");
 
     function generateSeed() {
-
+        const wordlist = language === "spanish" ? spanish : english;
+        const entropy = entropyMap[words];
+        const mnemonic = generateMnemonic(wordlist, entropy);
+        setMnemonic(mnemonic);
     }
 
-    function copyMnemonic() {
+    function copyMnemonic() {navigator.clipboard.writeText(mnemonic);}
 
-    }
-
-    function clearFields() {
-    }
-
+    function clearFields() {setMnemonic("");}
 
     return (
         <>
@@ -98,12 +108,12 @@ export default function BIP39Mod() {
                                 className="btn btn-primary"
                                 onClick={generateSeed}
                             >
-                                <i className="bi bi-stars me-2"></i>
                                 Generar
                             </button>
 
                             <button
                                 className="btn btn-outline-secondary d-flex align-items-center justify-content-center"
+                                disabled={!mnemonic}
                                 onClick={copyMnemonic}
                             >
                                 <FaCopy className="me-2" />
@@ -112,6 +122,7 @@ export default function BIP39Mod() {
 
                             <button
                                 className="btn btn-outline-danger d-flex align-items-center justify-content-center"
+                                disabled={!mnemonic}
                                 onClick={clearFields}
                             >
                                 <FaTrash className="me-2" />
