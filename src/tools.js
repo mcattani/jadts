@@ -3,7 +3,8 @@ import {
     FaHashtag, FaExchangeAlt,
     FaFingerprint, FaShieldAlt,
     FaLock, FaIdCard, FaFileCode,
-    FaUserLock, FaDatabase, FaLink
+    FaUserLock, FaDatabase, FaLink,
+    FaSeedling
 } from "react-icons/fa";
 
 export const tools = [
@@ -97,5 +98,12 @@ export const tools = [
         icon: FaLink,
         category: "Encoders",
         description: "Codifique URLs completas o parámetros individuales"
+    },
+    {
+        name: "BIP-39",
+        path: "/bip39mod",
+        icon: FaSeedling,
+        category: "Generadores",
+        description: "Genera frases mnemónicas compatibles con BIP-39"
     }
 ]
