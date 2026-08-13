@@ -4,7 +4,7 @@ Colección de herramientas web para desarrolladores.
 
 El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https://thenerdyapprentice.blogspot.com/)
 
-![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![License](https://img.shields.io/badge/License-GPL--3.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-^19.2.0-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-^8.0-646CFF?logo=vite&logoColor=white) ![Netlify](https://img.shields.io/badge/Hosted-Netlify-00C7B7?logo=netlify&logoColor=white)
+![Status](https://img.shields.io/badge/Status-En%20Construcción-orange) ![License](https://img.shields.io/badge/License-GPL--3.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white) ![React](https://img.shields.io/badge/React-^19.2.7-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-^8.1.5-646CFF?logo=vite&logoColor=white) ![Netlify](https://img.shields.io/badge/Hosted-Netlify-00C7B7?logo=netlify&logoColor=white)
 
 ## Descripción
 
@@ -13,7 +13,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 ## Características
 
 - **Interfaz moderna y oscura** - Diseño limpio con Bootstrap 5
-- **Rápido y responsivo** - Construido con Vite 8 y React 19
+- **Rápido y responsivo** - Construido con Vite 8.1 y React 19.2
 - **Búsqueda integrada** - Encuentra herramientas fácilmente
 - **Totalmente responsivo** - Funciona en cualquier dispositivo
 - **Code Splitting** - Lazy loading de páginas para mejor performance
@@ -45,9 +45,9 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 ## Stack Tecnológico
 
 ### Frontend
-- **React** ^19.2.0 - Librería de UI
-- **React Router** ^7.13.1 - Enrutamiento
-- **Vite** ^8.0.16 - Bundler y servidor de desarrollo
+- **React** ^19.2.7 - Librería de UI
+- **React Router** ^7.18.1 - Enrutamiento
+- **Vite** ^8.1.5 - Bundler y servidor de desarrollo
 - **Bootstrap** ^5.3.8 - Framework CSS
 - **React Bootstrap** ^2.10.10 - Componentes Bootstrap para React
 
@@ -55,17 +55,17 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 - **crypto-js** ^4.2.0 - Utilidades criptográficas
 - **jose** ^6.2.3 - JWT (JSON Web Tokens)
 - **bcryptjs** ^3.0.3 - Hashing Bcrypt
-- **uuid** ^14.0.0 - Generación de UUIDs
-- **react-qr-code** ^2.0.18 - Generador de códigos QR
-- **lorem-ipsum** ^2.0.8 - Generador de Lorem Ipsum
-- **react-icons** ^5.6.0 - Iconos
+- **uuid** ^14.0.1 - Generación de UUIDs
+- **react-qr-code** ^2.2.0 - Generador de códigos QR
+- **lorem-ipsum** ^3.0.0 - Generador de Lorem Ipsum
+- **react-icons** ^5.7.0 - Iconos
 - **react-helmet-async** ^3.0.0 - Gestión dinámica de SEO y metadatos
 - **sql-formatter** ^15.8.2 - Formateador de consultas SQL
 - **@scure/bip39** ^2.2.0 - Generador de frases mnemónicas compatibles con BIP-39
 
 ### Herramientas de Desarrollo
-- **ESLint** ^9.39.1 - Linter de JavaScript
-- **Vite Plugin React** ^5.1.1 - Plugin de React para Vite
+- **ESLint** ^10.7.0 - Linter de JavaScript
+- **Vite Plugin React** ^6.0.3 - Plugin de React para Vite
 
 ## Instalación
 
