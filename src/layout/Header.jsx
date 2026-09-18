@@ -37,6 +37,7 @@ export default function NavScroll({ searchTerm, setSearchTerm }) {
               <NavDropdown.Item as={Link} to="/MCiphermod">Cifrado Simétrico</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/jwtmod">JWT</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/bcryptmod">Bcrypt</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/bip39valmod">BIP-39 Validador</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Formateadores" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to="/jsonformatter">JSON</NavDropdown.Item>
