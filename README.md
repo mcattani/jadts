@@ -41,6 +41,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 - **Multi Cipher** - Encriptación/desencriptación con múltiples algoritmos (AES, TripleDES, DES, Rabbit, RC4 y RC4Drop)
 - **JWT** - Generador y decodificador de JSON Web Tokens
 - **Bcrypt** - Generador y validador de hashes Bcrypt
+- **BIP-39 Validador** - Valida frases mnemónicas compatibles con BIP-39
 
 ## Stack Tecnológico
 
