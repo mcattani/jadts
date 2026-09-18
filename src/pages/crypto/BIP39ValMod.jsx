@@ -1,6 +1,7 @@
-import {useState} from "react";
+import { useState } from "react";
 import SEO from "../../components/SEO";
-import {FaCheckCircle, FaTrash} from "react-icons/fa";
+import { FaCheckCircle, FaTrash } from "react-icons/fa";
+import { validateMnemonic } from "@scure/bip39";
 import { wordlist as english } from '@scure/bip39/wordlists/english.js';
 import { wordlist as spanish } from '@scure/bip39/wordlists/spanish.js';
 
@@ -10,12 +11,42 @@ export default function BIP39ValMod() {
     const [mnemonic, setMnemonic] = useState("");
     const [isValid, setIsValid] = useState(null);
     const [wordCount, setWordCount] = useState(0);
-    
-    function validateSeed() {
-    
+
+    function parseMnemonic(text) {
+        // Si no hay texto, establecer el contador de palabras a 0
+        if (!text.trim()) {
+            setWordCount(0);
+            return;
+        }
+
+        // Contar palabras separadas por espacios, ignorando espacios adicionales
+        const words = text.trim().split(/\s+/);
+        setWordCount(words.length);
+
+        return words;
     }
 
-    function clearFields(){ 
+    function normalizeMnemonic(words) {
+        // words va a ser un array proveniente de parseMnemonic, 
+        // por lo que se puede unir con espacios y luego normalizar
+        const normalized = words.join(' ').toLowerCase();
+        return normalized;
+    }
+
+    function validateSeed() {
+        // Obtener el wordlist según el idioma seleccionado
+        const selectedWordlist = language === "spanish" ? spanish : english;
+
+        // Contar palabras y normalizar la frase mnemónica
+        const wordsArray = parseMnemonic(mnemonic);
+        const normalizedMnemonic = normalizeMnemonic(wordsArray);
+
+        // Validar la frase mnemónica usando el wordlist correspondiente
+        const valid = validateMnemonic(normalizedMnemonic, selectedWordlist);
+        setIsValid(valid);
+    }
+
+    function clearFields() {
         setMnemonic("");
         setIsValid(null);
         setWordCount(0);
@@ -69,7 +100,10 @@ export default function BIP39ValMod() {
                                 className="form-control font-monospace"
                                 rows={4}
                                 value={mnemonic}
-                                onChange={(e) => setMnemonic(e.target.value)}
+                                onChange={(e) => {
+                                    setMnemonic(e.target.value);
+                                    parseMnemonic(e.target.value);
+                                }}
                                 placeholder="Introduce tu frase mnemónica..."
                             />
                         </div>
@@ -105,8 +139,8 @@ export default function BIP39ValMod() {
                         {isValid !== null && (
                             <div
                                 className={`alert ${isValid
-                                        ? "alert-success"
-                                        : "alert-danger"
+                                    ? "alert-success"
+                                    : "alert-danger"
                                     } mt-4 mb-0`}
                             >
                                 {isValid
@@ -124,9 +158,6 @@ export default function BIP39ValMod() {
                 </div>
             </div>
         </>
-
     );
-
-
 }
 
