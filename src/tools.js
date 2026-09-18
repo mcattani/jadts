@@ -4,7 +4,7 @@ import {
     FaFingerprint, FaShieldAlt,
     FaLock, FaIdCard, FaFileCode,
     FaUserLock, FaDatabase, FaLink,
-    FaSeedling
+    FaSeedling, FaCheckDouble
 } from "react-icons/fa";
 
 export const tools = [
@@ -105,5 +105,12 @@ export const tools = [
         icon: FaSeedling,
         category: "Generadores",
         description: "Genera frases mnemónicas compatibles con BIP-39"
+    },
+    {
+        name: "BIP-39 Validador",
+        pat: "/bip39valmod",
+        icon: FaCheckDouble,
+        category: "Crypto",
+        description: "Valida frases mnemónicas compatibles con BIP-39"
     }
 ]
