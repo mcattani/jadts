@@ -78,7 +78,7 @@ El proyecto está actualmente **en construcción**. [The Nerdy Apprentice](https
 
 1. Clona el repositorio
 ```bash
-git clone <repository-url>
+git clone https://github.com/mcattani/jadts.git
 cd jadts
 ```
 
